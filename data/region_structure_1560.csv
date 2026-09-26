@@ -1,0 +1,12 @@
+structure_id,year,place_id,region_structure,confidence,research_stage,knowledge_state,assessment_note,valid_from,valid_to,time_precision,atlas_status
+RS001,1560,P13,unknown,,evidence_reviewed,unknown,甲府の館は確認したが国全体の統合度は未調査,,,unknown,withheld
+RS002,1560,P09,unknown,,evidence_reviewed,unknown,桶狭間の交戦と水野諸家の配置から尾張全体の構造は判定できない,,,unknown,withheld
+RS003,1560,P10,unknown,,evidence_reviewed,unknown,年内変化と境目諸勢力の関係が未復元,,,unknown,withheld
+RS004,1560,P21,unknown,,evidence_reviewed,unknown,江北・江南の主体を候補化したが分割境界・重なりを確定できない,,,unknown,withheld
+RS005,1560,P35,unknown,,evidence_reviewed,unknown,複数の本間氏の1560年当年の指揮関係は未確認,,,unknown,withheld
+RS006,1560,X02,unknown,,evidence_reviewed,unknown,館と交易協定は全域の軍事構造を示さない,,,unknown,withheld
+RS007,1560,P65,unknown,,evidence_reviewed,unknown,西大隅の攻略・高山の本拠・菱刈院の所在は確認したが国全体の分割・重なりは未確定。志布志は隣国日向,,,unknown,withheld
+RS008,1560,R14,contested,medium,evidence_reviewed,incomplete,同一城を豊州家が保持し肝付氏が継続的に攻撃した。城周辺を対象とし広い面へ外挿しない,,,approx_span,withheld
+RS009,1560,R13,unknown,,evidence_reviewed,unknown,1554・1557年の攻略後の1560年保持と軍事統合度は未確認,,,unknown,withheld
+RS010,1560,R15,unknown,,evidence_reviewed,unknown,肝付氏の本拠は確認したが1560年の周辺勢力圏は未確認,,,unknown,withheld
+RS011,1560,R16,unknown,,evidence_reviewed,unknown,菱刈院の旧国所属を確認したが1560年の軍事関係は判定不能,,,unknown,withheld
