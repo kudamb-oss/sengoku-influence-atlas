@@ -51,4 +51,27 @@ Assessmentの `valid_from`・`valid_to` は影響の成立・終了が**資料�
 
 `coverage_1560.csv` は旧国・旧国制外地域の**調査進捗**である。旧 `partial` は `sources_identified` または `evidence_reviewed` と `incomplete` に移し、旧 `unknown` は `not_researched` と `unknown` に移した。未調査と調査済み判定不能を分けるため、新たに `research_stage` と `knowledge_reason` を置いた。`absent` は知識状態ではなく、明示的な不在証拠を扱う将来の別判定に限る。
 
-軍事基盤レイヤーはまだ作らない。将来は同じ主体・場所IDで、関係（主従・同盟・対立）と保持（直轄地・一門領・家臣知行・城館）を時期・出典付きで別表にする。勢力圏の**広さ**と内部の**統合度**は別の尺度として評価する。家名の一致や館の所在だけで従属・動員力を決めない。
+軍事基盤レイヤー本体はまだ作らない。主体間関係の試験台帳を次節で追加するが、直轄地・一門領・家臣知行・城館の保持を網羅する表は作らない。勢力圏の**広さ**と内部の**統合度**は別の尺度として評価する。家名の一致や館の所在だけで従属・動員力を決めない。
+
+## 主体間関係と多層Influenceの試験スキーマ
+
+この節は全国Assessment前の4ケース試験に用いる最小追加である。判定の目的と留保は`REVIEW_ASSESSMENT_MODEL_1560.md`、試験結果は`REVIEW_ASSESSMENT_FREEZE_1560.md`に記す。旧Evidence Baselineの行と既存Assessmentの未判定値は遡及変換しない。
+
+`data/actor_relations_1560.csv`は二つの軍事主体間で**史料が述べる関係**を記録する。`actor_a_id`・`actor_b_id`は`actors.csv`への参照であり、同一家名でも別の軍事意思決定単位を維持する。`direction=a_to_b`はAからBへの権限・働きかけ、`mutual`は相互の同盟・敵対を示す。`place_scope_id`は関係を示した場所の範囲で、空欄は全国一律の関係を意味しない。関係型は`direct_command`、`subordinate`、`semi_autonomous_subordinate`、`branch_family`、`alliance`、`hostile`、`contested_allegiance`、`nominal_authority`、`religious_network`、`intermediary`を候補とする。`intermediary`はAがBを通じて`target_actor_id`の第三者へ働きかけた事実で、命令権を含まない。`target_actor_id`はこの関係型でのみ必須とし、他では空欄にする。史料の文言が細分を支えなければ、より狭い関係型を推定しない。`unknown`は存在する辺として登録しない。
+
+`valid_from`・`valid_to`は関係が**資料で確認できる時点・幅**だけを示し、記録されない期間の継続を意味しない。`time_precision=year_event`・`month_event`はその年・月の出来事、`year_start_only`は成立年だけが判明し終期未確認、`approx_span`は反復記事等の概括的な幅、`undated`は年次未特定とする。始期・終期を推測で補わない。`knowledge_state`と`confidence`は関係記述の知識状態と資料適合度であり、**1560年の軍事指揮の確認度ではない**。`command_scope=demonstrated`は当該場所・時期・行動への実効的な命令・動員等が別に実証されたときだけ、`unverified`は未確認、`not_applicable`は敵対等の非上下関係に使う。被官・代官・分家・同盟・宗教的結合だけで`demonstrated`にしない。関係が変化・離反した場合は新しい関係行を作り、以前の行の終期が判明しないなら空欄のまま留保を付ける。異なる日付精度を現行暦の厳密な順序と誤読しない。
+
+`data/actor_relation_sources.csv`は`relation_id`、`source_id`、`locator`、`evidence_role`で関係の根拠本文を追う。一関係に複数出典を付けられる。`data/actor_relation_evidence.csv`は既存Evidence行が**両端の主体・関係・時期**を実際に支える場合だけ結ぶ。例えばE052は北条氏康勢による里見氏拠点への1560年5月の攻撃を一行で述べる。関係と地域Assessmentの根拠を機械的に共有しない。関係出典が本文未確認の場合、関係の確定根拠としない。
+
+`data/claims_1560.csv`には次の空欄許容列を追加した。既存33行の未判定値は空欄のままとし、代表ケースに限って根拠を確認した行へ記入する。
+
+| 列 | 値・制約 |
+| --- | --- |
+| `influence_mode` | `direct`、`indirect`、空欄。空欄は判定不能。関係の存在から自動設定しない |
+| `influence_basis` | `direct_action`＝主体自身の軍事行動・軍事的強制・拠点保持、`direct_command`＝当該部隊への具体的な指揮、`relation_mediated`＝別主体の行動への実効的介入、または空欄。`direct_action`と`direct_command`は`direct`、`relation_mediated`は`indirect`と組み合わせる |
+| `basis_relation_id` | `direct_command`・`relation_mediated`の場合は実証された関係行のIDが必須。`direct_action`では空欄とする。関係行だけでなく、当該行動・対象地域・時期のEvidenceも必要 |
+| `force_group_id` | **同一の実行戦力による一つの作戦**を複数主体へ帰属表示するとき、同じIDを共有する。敵対する別戦力は別ID。空欄は独立戦力であるとの証明ではなく、重複可能性の監査対象 |
+
+`direct_command`には指揮者と現地部隊の対応、命令内容、場所・時期を示す本文を要する。`relation_mediated`には単なる従属を超える命令・動員・援軍・補給・撤退・目標変更等の実効的介入と、現地の実行行動の両方を要する。関係の多段経路を自動伝播させない。`basis_relation_id`の関係に`command_scope=unverified`しかなければ、`direct_command`・`relation_mediated`の判定は作れない。強度は現地行動・継続性・対抗勢力を評価して別に決め、上位主体へコピーしない。
+
+集計の最小単位は主体Assessmentの行数ではない。同じ`force_group_id`に属する現地実行と上位の直接指揮・間接介入は、同じ軍事力として1回だけ数える。別陣営は同じ戦闘を扱っても別IDとする。複数行の同一性を確認できない場合は勢力数・兵力・占有面積を数値化せず、`atlas_status=withheld`とする。今回`force_group_id`は単一Evidenceに基づく試験の印としてのみ記入し、作戦台帳や数値集計は実装しない。
