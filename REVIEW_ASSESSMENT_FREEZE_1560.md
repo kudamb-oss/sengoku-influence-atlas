@@ -8,9 +8,9 @@
 
 | ファイル | 変更 | 理由 |
 | --- | --- | --- |
-| `data/actor_relations_1560.csv` | 関係7行。両端、必要時の仲介先、関係型、方向、場所、資料で示す時点、知識・確信、軍事指揮の確認状況を保持 | 家名や`relation_note`から上下を推定せずに関係を照合する |
-| `data/actor_relation_sources.csv` | 各関係の本文確認済み出典7結合 | 関係の存在と時期の根拠を追う |
-| `data/actor_relation_evidence.csv` | AR005とE052の1結合 | E052は北条氏康勢の攻撃と里見氏拠点を一行で示す。その他の関係へEvidenceを流用しない |
+| `data/diplomacy/actor_relations_1560.csv` | 関係7行。両端、必要時の仲介先、関係型、方向、場所、資料で示す時点、知識・確信、軍事指揮の確認状況を保持 | 家名や`relation_note`から上下を推定せずに関係を照合する |
+| `data/diplomacy/actor_relation_sources.csv` | 各関係の本文確認済み出典7結合 | 関係の存在と時期の根拠を追う |
+| `data/diplomacy/actor_relation_evidence.csv` | AR005とE052の1結合 | E052は北条氏康勢の攻撃と里見氏拠点を一行で示す。その他の関係へEvidenceを流用しない |
 | `data/claims_1560.csv` | `influence_mode`、`influence_basis`、`basis_relation_id`、`force_group_id`を追加。既存33行のうちC033のみ新列を限定記入。保留の試験行C037を1件追加 | direct行動・指揮・関係経由を機械的に区別し、同一戦力帰属を識別する |
 | `data/claim_evidence.csv`・`data/claim_sources.csv` | C037からE052・S68へ各1結合 | 久留里の試験Assessmentの根拠を追う |
 | `data/actors.csv` | A71隠岐氏勢、A72蠣崎光広勢を候補として追加 | 未登録の隠岐氏と、1514年の光広を1560年の季広A29へ混ぜない |

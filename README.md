@@ -20,9 +20,13 @@
 
 ## データの読み方
 
-形式は **複数のUTF-8 CSV表**とした。`places.csv` は `parent_id` で階層を表し、国→中間地域→必要な郡→拠点へ行を追加できる。`actors.csv` は軍事主体と家名を分ける。`evidence_1560.csv` は出典が示す記述、`claims_1560.csv` は地域と主体に関する研究上の評価を表し、`claim_evidence.csv` で結ぶ。`region_structure_1560.csv` は地域全体の軍事構造を別に評価する。`claim_sources.csv` は一判定と複数文献を結ぶ。`sources.csv` は政治等の将来のレイヤーとも共用する書誌マスターである。`coverage_1560.csv` は未調査と調査済み判定不能を区別する。
+形式は **複数のUTF-8 CSV表**とした。複数レイヤー（軍事、外交・従属関係など）で共有する基礎定義として、`data/places.csv`（空間・地域階層）、`data/actors.csv`（主体・勢力）、`data/sources.csv`（全レイヤー共用書誌マスター）を `data/` 直下に置く。
 
-CSVを選んだ理由は、今回の少量の調査台帳をGit差分と表計算で確認しやすく、外部アプリやデータベースサーバーを要さないためである。階層IDと結合表を分離しているため、郡・拠点の追加時に列や既存行を作り直さずに済む。関係や件数が増えて参照整合性の管理が難しくなった段階では、同じ表をSQLiteへ移す。スキーマと状態の意味は [データ設計](SCHEMA.md) に記す。
+レイヤーごとのデータは混ざらないよう分離する：
+- **軍事レイヤー（1560年）**: `data/claims_1560.csv`（軍事Assessment）、`data/evidence_1560.csv`（軍事具体的Evidence）、`data/region_structure_1560.csv`（地域構造）、`data/coverage_1560.csv`（調査進捗）、および各結合表（`claim_evidence.csv`、`claim_sources.csv`、`structure_evidence.csv`）と承認済み投影 `data/military_influence_1560.json`。
+- **外交・従属関係レイヤー**: `data/diplomacy/` 配下に配置。主体間関係台帳 `actor_relations_1560.csv`、および関係出典・証拠結合表（`actor_relation_sources.csv`、`actor_relation_evidence.csv`）を管理する。`node check_diplomacy_1560.js` でスキーマおよび参照整合性を確認できる。設計と運用規則は [外交・従属関係データ設計](SCHEMA_DIPLOMACY.md) に記す。
+
+CSVを選んだ理由は、今回の少量の調査台帳をGit差分と表計算で確認しやすく、外部アプリやデータベースサーバーを要さないためである。階層IDと結合表を分離しているため、郡・拠点の追加時に列や既存行を作り直さずに済む。関係や件数が増えて参照整合性の管理が難しくなった段階では、同じ表をSQLiteへ移す。軍事スキーマと状態の意味は [データ設計（軍事）](SCHEMA.md) に記す。
 
 代表5ケースの検証で、初版の `confirmed` 3件は勢力圏ではなく出来事の確認だと分かった。これらを `evidence_1560.csv` に移し、`claims_1560.csv` を研究上のAssessmentに限定した。`atlas_status=approved` の行だけをInfluenceとして投影する。旧 `uncertain` と自由記述の影響度は新しい状態軸へ機械的に変換せず、候補記録として保持した。大隅追加ケースでは旧国境の確認を行い、菱刈院を大隅国へ、志布志城周辺を日向国へ置いた。
 
@@ -32,9 +36,11 @@ CSVを選んだ理由は、今回の少量の調査台帳をGit差分と表計�
 
 ## 次に読む文書
 
-- [データ設計](SCHEMA.md)：行・ID・状態の定義と将来の軍事基盤レイヤー
+- [軍事データ設計](SCHEMA.md)：行・ID・状態の定義と軍事レイヤー仕様
+- [外交・従属関係データ設計](SCHEMA_DIPLOMACY.md)：主体間関係、名目と実効、軍事レイヤーとの境界
 - [初版レビュー](REVIEW_1560.md)：入力状況、史料密度、詳細化候補、成立性評価
 - [代表5ケースの設計検証](REVIEW_DESIGN_1560.md)：甲斐、尾張・三河、近江、佐渡、蝦夷地のEvidenceと判定
 - [状態分離と大隅追加ケースのレビュー](REVIEW_MODEL_1560.md)：現行スキーマ、旧国境、大隅と隣接日向、全国入力前の判定
 - `data/evidence_1560.csv`・`data/claim_evidence.csv`：証拠とAssessmentの対応
+- `data/diplomacy/actor_relations_1560.csv`：主体間関係台帳
 - `data/sources.csv`：書誌・閲覧状態・個別判定との結合先

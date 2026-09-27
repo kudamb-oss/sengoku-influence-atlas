@@ -1,0 +1,5 @@
+relation_id,actor_a_id,actor_b_id,target_actor_id,relation_type,direction,spatial_scope,place_scope_id,valid_from,valid_to,time_precision,knowledge_state,confidence,command_scope,continuity_review_status,continuity_review_scope,relation_note,caveat
+DUMMY_R001,A_HYPO_ALPHA,A_HYPO_BETA,,alliance,mutual,general,,1560-03,1560-03,month_event,known,high,not_applicable,not_reviewed,,【仮データ例】架空大名アルファ家とベータ家の包括的攻守同盟合意（地域限定なし）,架空例示用データ。実在の勢力・史料ではない。generalのためplace_scope_id空欄
+DUMMY_R002,A_HYPO_ALPHA,A_HYPO_GAMMA,,subordinate,a_to_b,localized,P_HYPO_CASTLE,1559,1560,approx_span,incomplete,medium,unverified,insufficient,探索範囲：架空記巻一,仮データ例：架空大名アルファ家に対する在地国衆ガンマ家の従属（軍役・人質提出）,架空例示用データ。特定拠点限定の服属
+DUMMY_R003,A_HYPO_BETA,A_HYPO_DELTA,A_HYPO_EPSILON,intermediary,a_to_b,unspecified,,1560-06,1560-06,month_event,known,medium,unverified,not_reviewed,,【仮データ例】ベータ家がデルタ家を通じてエプシロン家へ和睦を仲介,架空例示用データ。適用地域が未詳のためunspecified
+DUMMY_R004,A_HYPO_ALPHA,A_HYPO_BETA,,hostile,mutual,localized,P_HYPO_REGION,1560-09,1560-09,month_event,known,high,not_applicable,reviewed_no_contradiction,探索範囲：架空年代記1560年秋の部,【仮データ例】同盟破棄および国境交戦による敵対関係への転換,架空例示用データ。国境地域限定の交戦

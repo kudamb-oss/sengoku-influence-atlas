@@ -1,8 +1,0 @@
-relation_id,actor_a_id,actor_b_id,target_actor_id,relation_type,direction,place_scope_id,valid_from,valid_to,time_precision,knowledge_state,confidence,command_scope,continuity_review_status,continuity_review_scope,relation_note,caveat
-AR001,A14,A71,,subordinate,a_to_b,P43,,,undated,incomplete,medium,unverified,insufficient,S107本文の関係記述と1560年前後の年次を確認したが成立年と最終確認年は不明,隠岐氏と尼子氏の被官関係を自治体報告書が概説,成立・終了年および1560年の有効性と軍役・指揮は未確認
-AR002,A11,A72,,nominal_authority,a_to_b,R10,1514,1514,year_event,incomplete,medium,unverified,insufficient,S108本文の1514年認定と後年の独立記述を確認したが光広から季広への関係資料を未取得,安東氏が蠣崎光広の代官の地位を認めたと自治体解説が記す,1514年の認定事実だけを記録。季広A29への継承と1560年の動員権は未確認
-AR003,A30,A23,,hostile,mutual,T09,1558,1562,approx_span,incomplete,medium,not_applicable,not_reviewed,,肝付氏が豊州家保持の志布志城を反復攻撃した,個別交戦日と各年の占有範囲は未確認。反復攻撃を期間中の連続戦闘としない
-AR004,A30,A20,,hostile,mutual,R14,1536,1536,year_event,incomplete,medium,not_applicable,not_reviewed,,豊州家は貴久側と対立する陣営で志布志城の新納氏を攻撃した,1536年の陣営関係。1560年の敵対継続や豊州家の従属先を示さない
-AR005,A65,A52,,hostile,mutual,R19,1560-05,1560-05,month_event,incomplete,medium,not_applicable,not_reviewed,,北条氏康勢が里見氏拠点の上総久留里城を攻撃した,攻撃は上総。安房を主戦場にしない。月の暦法と守備軍の個別行動は未確認
-AR006,A52,A13,,alliance,mutual,,1560,,year_start_only,incomplete,medium,unverified,not_reviewed,,里見氏が長尾景虎勢へ出陣を要請し房越同盟成立と自治体解説が評価,同盟の終期と1560年の里見軍への景虎勢の直接指揮は未確認
-AR007,A52,A53,A13,intermediary,a_to_b,P18,1560-05,1560-05,month_event,incomplete,medium,unverified,not_reviewed,,里見義堯が正木時茂を通して越後勢へ出陣を要請した,仲介の事実は正木軍への里見氏の命令権・動員権を証明しない
