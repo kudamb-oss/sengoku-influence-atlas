@@ -194,6 +194,18 @@
    - 従属から自立、あるいは同盟から敵対への転換期において、公式な手切日や同盟締結日が単一の時点に確定できない場合、特定の一出来事（合戦日など）に終了日を決め打ちしない。
    - 反証探索が不十分・過渡期である場合は `continuity_review_status=insufficient` とし、関係解消の確定時期は推測で埋めず「未確定（未確認）」として安全に保持する。
 
+### 4.7 描画契約（Render Contract）: `knowledge_state=incomplete` の確定描画禁止
+可視化UI・地図描画・他システム連携において、未確定の推測関係が史実の確定同盟・敵対として誤認・誤描画されることを防ぐため、以下の描画契約（Render Contract）を定める：
+1. **投影JSONにおける明示フラグ**:
+   - 投影JSON（`data/diplomacy/actor_relations_1560.json`）の各関係オブジェクトは `render` フィールドを含む。
+   - `render.is_confirmed`: `knowledge_state === 'known'` の場合のみ `true`、`incomplete` の場合は `false`。
+   - `render.draw_status`: `knowledge_state === 'known'` の場合は `'confirmed'`、`incomplete` の場合は `'tentative_withheld'`。
+2. **利用側の遵守義務**:
+   - 地図やネットワーク図を描画するフロントエンド等は、`render.is_confirmed === true`（または `draw_status === 'confirmed'`）の確定関係のみを通常の実線・矢印で描画しなければならない。
+   - `render.is_confirmed === false`（または `draw_status === 'tentative_withheld'`）の行は、**確定線として描画してはならず**、原則として描画を保留（非表示）とするか、点線・クエスチョンマーク等の未確定表示かつ注記（caveat）を必須とする。
+3. **単発軍事行動・軍事呼応からの自動昇格禁止**:
+   - 単発の城攻めや合戦交戦（例: AR012, AR016）、あるいは軍事作戦への一時的「呼応」（例: AR014）のみを根拠として、持続的な外交敵対（`hostile`）や包括的同盟（`alliance`）を `knowledge_state=known` として確定してはならない。これらは公式な条約・起請文・手切状が確認されるまで `incomplete`（未確定）として安全に保持する。
+
 ---
 
 ## 5. 軍事レイヤーとの接点と境界原則

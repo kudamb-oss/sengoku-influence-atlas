@@ -165,6 +165,10 @@ function buildProjectionRecords(relations, relationSources, relationEvidence, ac
       },
       evidence: evidenceRecords,
       sources: sourceRecords,
+      render: {
+        is_confirmed: rel.knowledge_state === 'known',
+        draw_status: rel.knowledge_state === 'known' ? 'confirmed' : 'tentative_withheld'
+      },
       notes: {
         relation_note: rel.relation_note,
         caveat: rel.caveat
@@ -215,6 +219,7 @@ function main() {
       confidence: 'confidenceは関係記述そのものの根拠強度（史料・文献上の確実性）を表し、1560年指定時点での有効性・継続性を表すものではない。指定時点での有効性はtimeとcontinuityによってのみ評価される',
       evidence_role: 'evidence_roleは出典の役割（primary_document: 一次史料・古文書翻刻, scholarly_evaluation: 現代学術研究・自治体史通史解説, chronicle: 後世軍記・編纂物, counter_evidence: 反証史料）を表す。自治体史等の通史記述を一次史料と同一視しない',
       military_boundary: '外交関係（同盟・従属等）から軍事支配・指揮権・兵力投射を自動生成しない。command_scope=unverifiedは軍事実証なしを表す',
+      render_contract: 'is_confirmed=false（draw_status=tentative_withheld）の不確定関係は、地図・UI等において確定線として描画してはならない（表示保留または未確定注記を必須とする）。単発交戦や軍事呼応のみから包括的同盟・敵対を確定線として描画することを禁止する',
       null_contract: '値が不明または未調査の項目はnullとして保持し、架空の補完を行わない。1件の不明が他関係の不在を意味しない'
     },
     records

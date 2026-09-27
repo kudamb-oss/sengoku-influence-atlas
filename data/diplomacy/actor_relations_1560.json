@@ -7,6 +7,7 @@
     "confidence": "confidenceは関係記述そのものの根拠強度（史料・文献上の確実性）を表し、1560年指定時点での有効性・継続性を表すものではない。指定時点での有効性はtimeとcontinuityによってのみ評価される",
     "evidence_role": "evidence_roleは出典の役割（primary_document: 一次史料・古文書翻刻, scholarly_evaluation: 現代学術研究・自治体史通史解説, chronicle: 後世軍記・編纂物, counter_evidence: 反証史料）を表す。自治体史等の通史記述を一次史料と同一視しない",
     "military_boundary": "外交関係（同盟・従属等）から軍事支配・指揮権・兵力投射を自動生成しない。command_scope=unverifiedは軍事実証なしを表す",
+    "render_contract": "is_confirmed=false（draw_status=tentative_withheld）の不確定関係は、地図・UI等において確定線として描画してはならない（表示保留または未確定注記を必須とする）。単発交戦や軍事呼応のみから包括的同盟・敵対を確定線として描画することを禁止する",
     "null_contract": "値が不明または未調査の項目はnullとして保持し、架空の補完を行わない。1件の不明が他関係の不在を意味しない"
   },
   "records": [
@@ -55,6 +56,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "隠岐氏と尼子氏の被官関係を自治体報告書が概説",
         "caveat": "成立・終了年および1560年の有効性と軍役・指揮は未確認"
@@ -105,6 +110,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "安東氏が蠣崎光広の代官の地位を認めたと自治体解説が記す",
         "caveat": "1514年の認定事実だけを記録。季広A29への継承と1560年の動員権は未確認"
@@ -155,6 +164,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "肝付氏が豊州家保持の志布志城を反復攻撃した",
         "caveat": "個別交戦日と各年の占有範囲は未確認。反復攻撃を期間中の連続戦闘としない"
@@ -205,6 +218,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "豊州家は貴久側と対立する陣営で志布志城の新納氏を攻撃した",
         "caveat": "1536年の陣営関係。1560年の敵対継続や豊州家の従属先を示さない"
@@ -261,6 +278,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "北条氏康勢が里見氏拠点の上総久留里城を攻撃した",
         "caveat": "攻撃は上総。安房を主戦場にしない。月の暦法と守備軍の個別行動は未確認"
@@ -308,6 +329,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "里見氏が長尾景虎勢へ出陣を要請し房越同盟成立と自治体解説が評価",
         "caveat": "同盟の終期と1560年の里見軍への景虎勢の直接指揮は未確認。同盟の空間的適用範囲（房総限定か関東全般か両勢力全域か）は史料未精査のため未確定"
@@ -361,6 +386,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "里見義堯が正木時茂を通して越後勢へ出陣を要請した",
         "caveat": "仲介の事実は正木軍への里見氏の命令権・動員権を証明しない"
@@ -439,6 +468,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
       "notes": {
         "relation_note": "今川義元に対する松平元康の服属関係。岡崎城に今川氏城代が置かれ元康は大高城兵糧入れ等に従軍",
         "caveat": "1560年5月19日桶狭間合戦までの義元存命下での服属確認。義元戦死・岡崎城代撤退・7月制札発給・氏真からの離反（1560年後半〜1561年）・織田との和睦（1561〜1562年）はそれぞれ別個の出来事。義元戦死のみで今川家との従属終了日を自動確定しない。年後半は過渡期であり関係推移は未確定"
@@ -506,6 +539,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
       "notes": {
         "relation_note": "尾張領国化を進める織田信長と尾張侵攻を図る今川義元との相互敵対・交戦関係",
         "caveat": "1560年5月19日の桶狭間合戦での交戦事実に基づく。義元戦死後の今川氏真との外交関係推移は未調査のため年後半の敵対状態を自動延長しない"
@@ -568,6 +605,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
       "notes": {
         "relation_note": "六角義賢勢への従属下（賢政期）からの離反・自立に伴い近江野良田表で武力衝突し相互交戦・敵対状態となった",
         "caveat": "永禄3年8月中旬の野良田合戦での交戦事実および浅井氏自立の叙述に基づく。合戦前の六角氏への従属および離反に至る政治過程の詳細（起請文や手切状の年月日）や戦後の江北・江南境界推移は未確定"
@@ -624,6 +665,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
       "notes": {
         "relation_note": "毛利元就・隆元勢と尼子晴久・義久勢が石見国の覇権をめぐり相互交戦・敵対状態にあった（室町幕府による合戦停止命令の観測対象）",
         "caveat": "1560年4月4日は将軍足利義輝による合戦停止命令が下された観測日であり敵対関係自体の開始日や講和による終了日ではない。敵対自体はこれ以前より継続していたが公式な手切日および和睦・終期の正確な日時は未確定"
@@ -685,6 +730,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
         "relation_note": "越中富山城攻撃および神保長職の増山城退去の軍事的衝突を確認。軍事行動の背景にある越後勢と神保氏の外交的敵対・抗争関係（椎名氏支援や能登畠山氏との連絡等）の公式な合意・手切文書は未取得",
         "caveat": "S45が直接示すのは1560年の富山城攻撃と退去（軍事行動）であり外交上の宣戦・手切や包括的敵対合意の文書ではない。軍事衝突事実から直ちに持続的な外交的敵対関係を断定せず越中における同盟・敵対構造（椎名氏・能登畠山氏等）は調査中・未確定として保持"
@@ -741,6 +790,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
       "notes": {
         "relation_note": "岩付城主の太田資正勢が長尾景虎らの越山・後北条氏討伐に呼応し後北条氏から離反した",
         "caveat": "1560年（永禄3年）の離反事実に基づく。松山城奪還の正確な時期や武蔵国他領主への波及範囲は未確定"
@@ -771,12 +824,12 @@
         "valid_to": null
       },
       "assessment": {
-        "knowledge_state": "known",
+        "knowledge_state": "incomplete",
         "confidence": "medium",
         "command_scope": "unverified",
         "continuity": {
           "status": "insufficient",
-          "scope": "S89（さいたま市立博物館解説・太田資正の景虎呼応）。同盟約定文書の原本照合および直接指揮権は未検証"
+          "scope": "S89（さいたま市立博物館解説・太田資正の景虎呼応）。正式な同盟条約・起請文原本は未照合"
         }
       },
       "evidence": [
@@ -794,9 +847,13 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
-        "relation_note": "太田資正勢が長尾景虎勢の関東侵攻・後北条氏討伐に呼応して連携・同盟関係を結んだ",
-        "caveat": "1560年の呼応事実に基づく。同盟条項の詳細・終期および太田軍に対する景虎の直接指揮権の有無は未確認"
+        "relation_note": "太田資正勢が長尾景虎勢の関東侵攻・後北条氏討伐に呼応した事実を確認。正式な同盟盟約・起請文の締結状況は未確定",
+        "caveat": "1560年の軍事呼応事実に基づく。正式な同盟条約の締結・終期および太田軍に対する景虎の直接指揮権の有無は未確認のため確定同盟としては保留"
       }
     },
     {
@@ -850,6 +907,10 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
       "notes": {
         "relation_note": "三村家親勢が庄為資勢を攻撃した末に和睦が成立し三村氏が猿掛城へ入った",
         "caveat": "1559年（永禄2年）の和睦成立事実に基づく。1560年における和睦関係の継続性およびその後の毛利氏支援による庄高資攻撃（1561年）への推移は未確定"
@@ -883,12 +944,12 @@
         "valid_to": "1559"
       },
       "assessment": {
-        "knowledge_state": "known",
+        "knowledge_state": "incomplete",
         "confidence": "medium",
         "command_scope": "not_applicable",
         "continuity": {
           "status": "insufficient",
-          "scope": "S76（久留米市解説・1559年筑前侍嶋合戦での交戦）。1560年における敵対継続状況および講和の有無は未検証"
+          "scope": "S76（久留米市解説・1559年筑前侍嶋合戦での交戦）。単発交戦後の外交推移は未検証"
         }
       },
       "evidence": [
@@ -906,9 +967,13 @@
           "evidence_role": "scholarly_evaluation"
         }
       ],
+      "render": {
+        "is_confirmed": false,
+        "draw_status": "tentative_withheld"
+      },
       "notes": {
-        "relation_note": "大友義鎮勢が筑前侍嶋において筑紫惟門勢と武力衝突し相互交戦・敵対状態にあった",
-        "caveat": "1559年の侍嶋合戦での交戦事実に基づく。1560年における敵対継続状況・局地停戦または講和の有無は未検証"
+        "relation_note": "大友義鎮勢が筑前侍嶋において筑紫惟門勢と武力衝突した事実を確認。単発交戦から持続的外交関係（包括的敵対・従属等）の確定は保留",
+        "caveat": "1559年の侍嶋合戦での交戦事実に基づく。単発の武力衝突から持続的な外交的敵対関係への認定は保留とし1560年の交戦継続・講和の有無は未検証"
       }
     }
   ]

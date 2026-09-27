@@ -376,7 +376,7 @@ function validateDiplomacy(options = {}) {
   }
 
   console.log('✅ 本番外交カバレッジ表検証合格');
-  console.log(`  - 登録地域数: ${coverageRows.length}地域 / 対象70地域 (旧国68 + 外部2) を完全網羅`);
+  console.log(`  - 登録地域数: ${coverageRows.length}地域 / 対象70地域 (旧国68 + 外部2) の台帳行を登録済み`);
   console.log(`  - 調査進捗 (research_stage):`);
   console.log(`    * evidence_reviewed (史料本文・証拠精査済み): ${coverageStageCounts.evidence_reviewed}地域`);
   console.log(`    * sources_identified (候補資料把握): ${coverageStageCounts.sources_identified}地域`);
