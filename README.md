@@ -24,7 +24,7 @@
 
 レイヤーごとのデータは混ざらないよう分離する：
 - **軍事レイヤー（1560年）**: `data/claims_1560.csv`（軍事Assessment）、`data/evidence_1560.csv`（軍事具体的Evidence）、`data/region_structure_1560.csv`（地域構造）、`data/coverage_1560.csv`（調査進捗）、および各結合表（`claim_evidence.csv`、`claim_sources.csv`、`structure_evidence.csv`）と承認済み投影 `data/military_influence_1560.json`。
-- **外交・従属関係レイヤー**: `data/diplomacy/` 配下に配置。主体間関係台帳 `actor_relations_1560.csv`、および関係出典・証拠結合表（`actor_relation_sources.csv`、`actor_relation_evidence.csv`）を管理する。`node check_diplomacy_1560.js` でスキーマおよび参照整合性を確認できる。設計と運用規則は [外交・従属関係データ設計](SCHEMA_DIPLOMACY.md) に記す。
+- **外交・従属関係レイヤー**: `data/diplomacy/` 配下に配置。主体間関係台帳 `actor_relations_1560.csv`、関係出典・証拠結合表（`actor_relation_sources.csv`、`actor_relation_evidence.csv`）、および最小投影 `actor_relations_1560.json` を管理する。`node check_diplomacy_1560.js` でスキーマおよび参照整合性を確認できるほか、`node build_diplomacy_1560.js --check` で投影JSONの一致検証、`--sample` で欠損値耐性契約のテストを実行できる。設計と運用規則は [外交・従属関係データ設計](SCHEMA_DIPLOMACY.md) に記す。
 
 CSVを選んだ理由は、今回の少量の調査台帳をGit差分と表計算で確認しやすく、外部アプリやデータベースサーバーを要さないためである。階層IDと結合表を分離しているため、郡・拠点の追加時に列や既存行を作り直さずに済む。関係や件数が増えて参照整合性の管理が難しくなった段階では、同じ表をSQLiteへ移す。軍事スキーマと状態の意味は [データ設計（軍事）](SCHEMA.md) に記す。
 
@@ -43,4 +43,5 @@ CSVを選んだ理由は、今回の少量の調査台帳をGit差分と表計�
 - [状態分離と大隅追加ケースのレビュー](REVIEW_MODEL_1560.md)：現行スキーマ、旧国境、大隅と隣接日向、全国入力前の判定
 - `data/evidence_1560.csv`・`data/claim_evidence.csv`：証拠とAssessmentの対応
 - `data/diplomacy/actor_relations_1560.csv`：主体間関係台帳
+- `data/diplomacy/actor_relations_1560.json`：外交関係投影JSON
 - `data/sources.csv`：書誌・閲覧状態・個別判定との結合先

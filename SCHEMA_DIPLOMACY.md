@@ -247,3 +247,123 @@ DUMMY_R004,A_HYPO_ALPHA,A_HYPO_BETA,,hostile,mutual,localized,P_HYPO_REGION,1560
 | `AR006` | A52(里見) ⇔ A13(長尾景虎) | alliance (mutual) | **unspecified** (空欄) | year_start_only (1560〜空欄) | 里見氏が長尾景虎へ出陣要請し房越同盟成立 | 終期未確認（推測で年末等に延長しない）。**同盟の適用地域範囲は史料未精査のため推測で `general` と断定せず `unspecified` として保持** |
 | `AR007` | A52(里見) → A53(正木時茂) [対象: A13] | intermediary (a_to_b) | localized (P18: 上総) | month_event (1560-05〜1560-05) | 里見義堯が正木時茂を通じ越後勢へ要請 | 1560年5月の取次出来事。正木軍への里見氏の命令権・動員権は未確認 |
 
+---
+
+## 11. 外交レイヤー最小投影JSON仕様と欠損値契約（Null Contract）
+
+外交台帳（CSV）からフロントエンドや地図表示、分析スクリプトで扱いやすい単一のJSON形式として、投影JSON（`data/diplomacy/actor_relations_1560.json`）を生成する。
+生成および検証は以下のコマンドにより行う：
+
+```bash
+# 投影JSONの生成
+node build_diplomacy_1560.js
+
+# 原本CSVと投影JSONの一致・参照整合性の検証
+node build_diplomacy_1560.js --check
+
+# 架空サンプルデータによる欠損値耐性契約のテスト
+node build_diplomacy_1560.js --sample
+```
+
+### 11.1 JSONスキーマ構造
+
+投影JSONは以下のメタデータと関係レコード配列で構成される：
+
+```json
+{
+  "schema_version": "diplomacy-relations-projection-1560/v1",
+  "generated_at": "YYYY-MM-DDTHH:mm:ss.sssZ",
+  "record_count": 7,
+  "relations": [
+    {
+      "relation_id": "AR001",
+      "relation_type": "subordinate",
+      "direction": "a_to_b",
+      "actors": {
+        "actor_a": { "id": "A14", "label": "尼子" },
+        "actor_b": { "id": "A71", "label": "隠岐" },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": { "id": "P43", "name_ja": "隠岐" }
+      },
+      "time": {
+        "precision": "undated",
+        "valid_from": null,
+        "valid_to": null
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "unverified",
+        "continuity": {
+          "status": "not_reviewed",
+          "scope": null
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S107",
+          "name": "『新修島根県史』通史編2中世",
+          "locator": "第3章第2節",
+          "evidence_role": "primary_document"
+        }
+      ],
+      "notes": {
+        "relation_note": "尼子氏による隠岐諸氏の被官化。隠岐氏らが尼子晴久・義久期に従属関係を結ぶ",
+        "caveat": "成立年・終了年ともに特定困難。1560年時点での実効的従属の度合いは軍役等の具体的史料で要検証"
+      }
+    }
+  ]
+}
+```
+
+### 11.2 欠損値契約（Null Contract）
+
+約500年前の史料は本質的に断片的・不完全であり、すべての属性が揃うことを前提にできない。本投影では、情報が存在しない・未確認であることを明示するため、厳格な欠損値（`null`）契約を設けている：
+
+1. **空間情報（`spatial`）の欠損値契約**:
+   - `spatial.scope` が `general`（地域限定なし・全般）または `unspecified`（適用地域未詳・未確定）の場合、`spatial.place` は厳格に `null` とする。
+   - 架空の地域IDを割り当てたり、空文字 `""` や `{}` にフォールバックしない。
+   - `spatial.scope` が `localized` の場合のみ、解決された拠点・地域オブジェクト `{ id, name_ja }` を格納する。
+2. **主体情報（`actors`）の欠損値契約**:
+   - `actors.target_actor` は、`relation_type` が `intermediary`（取次・仲介）かつ有効な主体IDが指定されている場合のみオブジェクト `{ id, label }` を格納する。それ以外（対等同盟、従属、敵対など）では厳格に `null` とする。
+3. **時期情報（`time`）の欠損値契約**:
+   - 原本CSVにおいて `valid_from` または `valid_to` が空欄である場合、推測で年内（`1560-12-31` 等）や未来・過去の日付を補完せず、厳格に `null` とする。
+   - `valid_from: null` は「始期不明（成立時期特定不能）」を意味する。
+   - `valid_to: null` は「終期未確認」を意味する（無期限継続や当年全体の有効を意味しない）。
+4. **評価情報（`assessment`）の欠損値契約**:
+   - `continuity.scope`（反証探索スコープ）が空欄の場合（`not_reviewed` 等）、`null` とする。
+   - `confidence` 等の評価列が未設定の場合も `null` とする。
+5. **結合情報（`evidence`, `sources`）の契約**:
+   - 当該関係に紐付くEvidenceや出典が存在しない場合、`null` ではなく空配列 `[]` とする（配列処理の安全性を確保）。
+
+---
+
+## 12. 将来の全国調査進捗の概念設計（未調査と関係なしの分離）
+
+全国の勢力関係へ調査を広げるにあたり、「関係が記録されていない」ことの意味を厳格に峻別する必要がある。
+
+### 12.1 3つの知識状態
+
+戦国期の任意の2主体間において、関係の記録状態は以下の3段階に分類される：
+
+| 状態区分 | 定義 | 地図・UIにおける扱い | 備考 |
+| --- | --- | --- | --- |
+| **`not_researched`（未調査）** | 当該地域・主体間の史料調査が未着手。関係の有無は不明。 | 非表示、または「未調査」ステータス表示 | 史実上の関係不在を意味しない。 |
+| **`researched_no_relation_found`（調査済・関係未確認）** | 対象地域の主要史料を網羅的に精査したが、直接の外交・政治的関係を示す記述が確認されなかった状態。 | 「特段の関係確認されず」等の学術注記 | 接触がなかったか、史料散逸の可能性。 |
+| **`relation_documented`（関係確認済）** | 史料上、何らかの外交・同盟・従属・敵対関係が確認された状態。 | 辺（エッジ）として描画、属性表示 | 本レイヤーのCSV/JSONにレコードとして登録される。 |
+
+### 12.2 データ表現方針（疎結合グラフの維持）
+
+- **デカルト積（全主体ペアの総当たり表）の禁止**:
+  全国数十〜数百の主体のすべてのペア（$N \times (N-1) / 2$）をあらかじめ生成して「未調査」で埋める方式は、データ量を爆発させ保守性を損なうため採用しない。
+- **台帳とカバレッジ管理の分離**:
+  - `actor_relations_*.csv`: 史料で確認された関係（`relation_documented`）のみをエッジとして記録する。
+  - 将来の全国展開時には、軍事レイヤーの `data/coverage_1560.csv` と同様に、地域・国ごとの調査進捗状況を管理する表（例: `data/diplomacy/coverage_1560.csv`）を必要に応じて導入し、調査対象国・未調査国の進捗を管理する。
+- **地域・主体の偏り防止**:
+  房総や特定の先進地域のみを特別扱いせず、全国一律のスキーマ・欠損値契約を適用する。未調査地域についても、根拠史料が確認された段階で順次追加する。
+
+

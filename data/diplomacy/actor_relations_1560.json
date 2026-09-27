@@ -1,0 +1,368 @@
+{
+  "schema": "diplomacy-relations-projection-1560/v1",
+  "source": "data/diplomacy/actor_relations_1560.csv",
+  "semantics": {
+    "temporal": "valid_from/valid_toは史料確認時期。空欄はnull（始期不明/終期未確認）。特定日観測を関係終了日と自動断定しない。指定時点での継続が反証探索で裏付けられない場合は「不明」として扱い、継続中や関係なしと断定しない",
+    "spatial": "spatial_scope=localizedはplaceによる地域限定。generalは勢力間包括合意（placeはnull）。unspecifiedは適用地域未詳（placeはnull、推測で包括合意と断定しない）",
+    "military_boundary": "外交関係（同盟・従属等）から軍事支配・指揮権・兵力投射を自動生成しない。command_scope=unverifiedは軍事実証なしを表す",
+    "null_contract": "値が不明または未調査の項目はnullとして保持し、架空の補完を行わない。1件の不明が他関係の不在を意味しない"
+  },
+  "records": [
+    {
+      "relation_id": "AR001",
+      "relation_type": "subordinate",
+      "direction": "a_to_b",
+      "actors": {
+        "actor_a": {
+          "id": "A14",
+          "label": "尼子晴久・義久勢"
+        },
+        "actor_b": {
+          "id": "A71",
+          "label": "隠岐氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P43",
+          "name": "隠岐"
+        }
+      },
+      "time": {
+        "precision": "undated",
+        "valid_from": null,
+        "valid_to": null
+      },
+      "assessment": {
+        "knowledge_state": "incomplete",
+        "confidence": "medium",
+        "command_scope": "unverified",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S107本文の関係記述と1560年前後の年次を確認したが成立年と最終確認年は不明"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S107",
+          "title": "国府尾城跡活用整備の検討にかかる報告書 第1分冊",
+          "locator": "本文5頁・歴史的環境",
+          "evidence_role": "被官関係の通史説明"
+        }
+      ],
+      "notes": {
+        "relation_note": "隠岐氏と尼子氏の被官関係を自治体報告書が概説",
+        "caveat": "成立・終了年および1560年の有効性と軍役・指揮は未確認"
+      }
+    },
+    {
+      "relation_id": "AR002",
+      "relation_type": "nominal_authority",
+      "direction": "a_to_b",
+      "actors": {
+        "actor_a": {
+          "id": "A11",
+          "label": "檜山安東氏勢"
+        },
+        "actor_b": {
+          "id": "A72",
+          "label": "蠣崎光広勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "R10",
+          "name": "松前周辺"
+        }
+      },
+      "time": {
+        "precision": "year_event",
+        "valid_from": "1514",
+        "valid_to": "1514"
+      },
+      "assessment": {
+        "knowledge_state": "incomplete",
+        "confidence": "medium",
+        "command_scope": "unverified",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S108本文の1514年認定と後年の独立記述を確認したが光広から季広への関係資料を未取得"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S108",
+          "title": "北の中世を旅する",
+          "locator": "1514年の蠣崎光広の段落",
+          "evidence_role": "代官認定の記述"
+        }
+      ],
+      "notes": {
+        "relation_note": "安東氏が蠣崎光広の代官の地位を認めたと自治体解説が記す",
+        "caveat": "1514年の認定事実だけを記録。季広A29への継承と1560年の動員権は未確認"
+      }
+    },
+    {
+      "relation_id": "AR003",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A30",
+          "label": "豊州家島津氏勢"
+        },
+        "actor_b": {
+          "id": "A23",
+          "label": "肝付氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "T09",
+          "name": "志布志城"
+        }
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1558",
+        "valid_to": "1562"
+      },
+      "assessment": {
+        "knowledge_state": "incomplete",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "not_reviewed",
+          "scope": null
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S32",
+          "title": "志布志城の歴史",
+          "locator": "肝付氏の攻撃の節",
+          "evidence_role": "反復攻撃と城保持の記述"
+        }
+      ],
+      "notes": {
+        "relation_note": "肝付氏が豊州家保持の志布志城を反復攻撃した",
+        "caveat": "個別交戦日と各年の占有範囲は未確認。反復攻撃を期間中の連続戦闘としない"
+      }
+    },
+    {
+      "relation_id": "AR004",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A30",
+          "label": "豊州家島津氏勢"
+        },
+        "actor_b": {
+          "id": "A20",
+          "label": "島津貴久勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "R14",
+          "name": "志布志城周辺"
+        }
+      },
+      "time": {
+        "precision": "year_event",
+        "valid_from": "1536",
+        "valid_to": "1536"
+      },
+      "assessment": {
+        "knowledge_state": "incomplete",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "not_reviewed",
+          "scope": null
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S109",
+          "title": "志布志城1536 解説",
+          "locator": "志布志城1536の節",
+          "evidence_role": "1536年の対立陣営の記述"
+        }
+      ],
+      "notes": {
+        "relation_note": "豊州家は貴久側と対立する陣営で志布志城の新納氏を攻撃した",
+        "caveat": "1536年の陣営関係。1560年の敵対継続や豊州家の従属先を示さない"
+      }
+    },
+    {
+      "relation_id": "AR005",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A65",
+          "label": "北条氏康勢"
+        },
+        "actor_b": {
+          "id": "A52",
+          "label": "里見氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "R19",
+          "name": "久留里城周辺"
+        }
+      },
+      "time": {
+        "precision": "month_event",
+        "valid_from": "1560-05",
+        "valid_to": "1560-05"
+      },
+      "assessment": {
+        "knowledge_state": "incomplete",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "not_reviewed",
+          "scope": null
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E052",
+          "role": "北条氏康勢による里見氏拠点の攻撃を両端・場所・月とともに記録",
+          "statement": "館山市の解説は1560年5月に北条氏康が里見義堯の拠点である上総久留里城を攻撃したと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S68",
+          "title": "さとみ物語・要約版 4章-2文",
+          "locator": "房越同盟の段落",
+          "evidence_role": "1560年5月の久留里城攻撃"
+        }
+      ],
+      "notes": {
+        "relation_note": "北条氏康勢が里見氏拠点の上総久留里城を攻撃した",
+        "caveat": "攻撃は上総。安房を主戦場にしない。月の暦法と守備軍の個別行動は未確認"
+      }
+    },
+    {
+      "relation_id": "AR006",
+      "relation_type": "alliance",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A52",
+          "label": "里見氏勢"
+        },
+        "actor_b": {
+          "id": "A13",
+          "label": "長尾景虎勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "unspecified",
+        "place": null
+      },
+      "time": {
+        "precision": "year_start_only",
+        "valid_from": "1560",
+        "valid_to": null
+      },
+      "assessment": {
+        "knowledge_state": "incomplete",
+        "confidence": "medium",
+        "command_scope": "unverified",
+        "continuity": {
+          "status": "not_reviewed",
+          "scope": null
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S110",
+          "title": "さとみ物語 完全版4章2文",
+          "locator": "房越同盟の段落",
+          "evidence_role": "出陣要請と同盟成立の記述"
+        }
+      ],
+      "notes": {
+        "relation_note": "里見氏が長尾景虎勢へ出陣を要請し房越同盟成立と自治体解説が評価",
+        "caveat": "同盟の終期と1560年の里見軍への景虎勢の直接指揮は未確認。同盟の空間的適用範囲（房総限定か関東全般か両勢力全域か）は史料未精査のため未確定"
+      }
+    },
+    {
+      "relation_id": "AR007",
+      "relation_type": "intermediary",
+      "direction": "a_to_b",
+      "actors": {
+        "actor_a": {
+          "id": "A52",
+          "label": "里見氏勢"
+        },
+        "actor_b": {
+          "id": "A53",
+          "label": "正木氏勢"
+        },
+        "target_actor": {
+          "id": "A13",
+          "label": "長尾景虎勢"
+        }
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P18",
+          "name": "上総"
+        }
+      },
+      "time": {
+        "precision": "month_event",
+        "valid_from": "1560-05",
+        "valid_to": "1560-05"
+      },
+      "assessment": {
+        "knowledge_state": "incomplete",
+        "confidence": "medium",
+        "command_scope": "unverified",
+        "continuity": {
+          "status": "not_reviewed",
+          "scope": null
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S110",
+          "title": "さとみ物語 完全版4章2文",
+          "locator": "房越同盟の段落",
+          "evidence_role": "正木時茂の仲介の記述"
+        }
+      ],
+      "notes": {
+        "relation_note": "里見義堯が正木時茂を通して越後勢へ出陣を要請した",
+        "caveat": "仲介の事実は正木軍への里見氏の命令権・動員権を証明しない"
+      }
+    }
+  ]
+}
