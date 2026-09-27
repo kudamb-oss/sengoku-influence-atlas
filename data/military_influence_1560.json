@@ -1,0 +1,458 @@
+{
+  "schema": "military-influence-projection-1560/v1",
+  "source": "data/claims_1560.csv",
+  "semantics": {
+    "spatial": "place_idは索引。geometry=nullは境界未確定を表し、親地域へ拡張しない",
+    "temporal": "yearは対象年。eventとapprox_spanを通年・年末状態へ変換しない",
+    "withheld": "未採用・未確定。空白は軍事Influenceの不在を示さない",
+    "counting": "表示行を戦力数・占有面積として合算しない。空欄force_group_idは独立戦力の証明ではない"
+  },
+  "records": [
+    {
+      "claim_id": "C003",
+      "actor": {
+        "id": "A02",
+        "label": "今川義元勢"
+      },
+      "place": {
+        "id": "T12",
+        "name": "岡崎城"
+      },
+      "spatial_limitation": "岡崎城の城代による拠点保持に限定。西三河全域は含めない",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "approx_span",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "桶狭間以前の1560年内の確認可能な保持時点。義元戦死後の撤退日と年末状態は採用しない"
+      },
+      "influence": {
+        "status": "influential",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E005",
+          "role": "桶狭間以前の地域支配の叙述",
+          "source_id": "S24",
+          "locator": "PDF34頁・印刷46頁",
+          "review_status": "本文確認",
+          "caveat": "西三河全域の軍事作用には拡張しない。城代の個人名と個別軍令はこの箇所にない"
+        },
+        {
+          "id": "E059",
+          "role": "桶狭間以前の岡崎城代と拠点保持",
+          "source_id": "S24",
+          "locator": "PDF34頁・印刷46頁",
+          "review_status": "本文確認",
+          "caveat": "採用候補は桶狭間以前の岡崎城保持に限定。城代の氏名と撤退日および西三河全域の軍事配置は未特定"
+        }
+      ],
+      "caveat": "採用範囲は桶狭間以前の1560年における岡崎城の拠点保持。城代個人名・撤退日・周辺への作用範囲は未確定",
+      "inference_note": "S24/E059は今川氏有力家臣の岡崎城代と義元戦死後の今川勢撤退を記す。義元当主勢力の城保持に帰属し個人の現地行動とはしない",
+      "relation_note": "松平元康勢の尾張での行動や戦後の岡崎帰城は別扱い"
+    },
+    {
+      "claim_id": "C004",
+      "actor": {
+        "id": "A03",
+        "label": "松平元康勢"
+      },
+      "place": {
+        "id": "T02",
+        "name": "法蔵寺"
+      },
+      "spatial_limitation": "法蔵寺での陣取禁止命令に限定。岡崎全体ではない",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "event_anchor",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "旧暦7月9日の発給時点。成立・終了は未確認"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E001",
+          "role": "年内転換の契機",
+          "source_id": "S02",
+          "locator": "55頁・1560年5月19日",
+          "review_status": "本文確認",
+          "caveat": "年表の記載。原史料本文は未照合"
+        },
+        {
+          "id": "E006",
+          "role": "元康の局地的命令権",
+          "source_id": "S23",
+          "locator": "永禄3年7月9日付制札",
+          "review_status": "本文確認",
+          "caveat": "現存史料の自治体解説。三河全域支配は示さない"
+        }
+      ],
+      "caveat": "採用範囲は法蔵寺への旧暦7月9日の軍事的禁止命令発給のみ。履行と三河支配は未判定",
+      "inference_note": "永禄3年7月9日の制札について自治体解説が局地的な軍事的強制を示す。三河全域の支配や命令の履行は未確認",
+      "relation_note": "今川氏からの自立時点を年内で要分割"
+    },
+    {
+      "claim_id": "C009",
+      "actor": {
+        "id": "A08",
+        "label": "浅井長政勢"
+      },
+      "place": {
+        "id": "R23",
+        "name": "野良田表周辺"
+      },
+      "spatial_limitation": "野良田表の交戦範囲に限定。江北全域ではない",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "month_event",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "永禄3年（1560）旧暦8月中旬の野良田合戦時点"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E007",
+          "role": "合戦後の江北支配の叙述",
+          "source_id": "S25",
+          "locator": "小谷城跡・野良田合戦の節",
+          "review_status": "検索抄録のみ",
+          "caveat": "合戦月日・境界および原史料は未確認"
+        },
+        {
+          "id": "E057",
+          "role": "1560年8月中旬の野良田表の交戦",
+          "source_id": "S111",
+          "locator": "33-34頁・表6",
+          "review_status": "本文確認",
+          "caveat": "野良田表の交戦のみ。現在の彦根市域に当たり江北全域の継続支配を示さない。年表が挙げる江濃記原文は未照合"
+        }
+      ],
+      "caveat": "採用範囲は旧暦8月中旬の野良田表での交戦のみ。江北全域・年間支配・戦後の状態は未判定",
+      "inference_note": "S111/E057で賢政（長政）勢と六角義賢勢の野良田表での交戦を確認。『江濃記』原文は未照合。戦後の江北支配は採用しない",
+      "relation_note": "六角義賢勢と野良田表で交戦。敵対する別戦力"
+    },
+    {
+      "claim_id": "C033",
+      "actor": {
+        "id": "A30",
+        "label": "豊州家島津氏勢"
+      },
+      "place": {
+        "id": "R14",
+        "name": "志布志城周辺"
+      },
+      "spatial_limitation": "志布志城の拠点保持に限定。周辺一帯への作用範囲は未確定",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "approx_span",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "取得始期に資料差。終期は報告書年表の1560年と同書本文・市資料の1562年で競合"
+      },
+      "influence": {
+        "status": "influential",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E014",
+          "role": "志布志城在城",
+          "source_id": "S32",
+          "locator": "豊州家在城の節",
+          "review_status": "本文確認",
+          "caveat": "始期はS33の1538年と異なる。1560年を挟む在城は一致"
+        },
+        {
+          "id": "E016",
+          "role": "在城期間の別記述",
+          "source_id": "S33",
+          "locator": "PDF12～13頁",
+          "review_status": "本文確認",
+          "caveat": "S32の始期1536年との差は未解決。終期と1560年の在城は一致"
+        },
+        {
+          "id": "E023",
+          "role": "志布志の旧国所属",
+          "source_id": "S41",
+          "locator": "PDF34頁・明治期の国郡区分",
+          "review_status": "本文確認",
+          "caveat": "現代の鹿児島県所属を1560年の大隅国所属へ遡及しない"
+        }
+      ],
+      "caveat": "採用範囲は1560年内の退去前における志布志城の前線拠点保持。年末までの保持・地域面積・統合指揮系統は未確定",
+      "inference_note": "豊州家の志布志城保持は1560年内の退去前に確認可能。退去・落城年には1560年と1562年の記載が競合する",
+      "relation_note": "肝付氏による継続的な攻撃を受ける。貴久勢との統一指揮は未証明"
+    },
+    {
+      "claim_id": "C037",
+      "actor": {
+        "id": "A65",
+        "label": "北条氏康勢"
+      },
+      "place": {
+        "id": "R19",
+        "name": "久留里城周辺"
+      },
+      "spatial_limitation": "1560年5月の久留里城攻撃に限定。上総全域ではない",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "month_event",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "1560年5月の攻撃事実に限定"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": "FG_E052_HOJO",
+      "evidence": [
+        {
+          "id": "E052",
+          "role": "1560年5月の久留里城攻撃",
+          "source_id": "S68",
+          "locator": "房越同盟の段落",
+          "review_status": "本文確認",
+          "caveat": "安房ではなく上総が主たる舞台。月の暦法は解説で明示されず原史料未照合。城攻撃から上総全域の支配を推定しない"
+        }
+      ],
+      "caveat": "採用範囲は1560年5月の久留里城攻撃。攻撃後の保持は未判定",
+      "inference_note": "E052が攻撃の実行を示す。保持や優位は示さない",
+      "relation_note": "里見氏の拠点への攻撃であり城の取得は未確認"
+    },
+    {
+      "claim_id": "C038",
+      "actor": {
+        "id": "A01",
+        "label": "織田信長勢"
+      },
+      "place": {
+        "id": "R02",
+        "name": "桶狭間周辺"
+      },
+      "spatial_limitation": "桶狭間周辺の旧暦5月19日の交戦に限定",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "day_event",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "旧暦1560年5月19日の交戦時点"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E001",
+          "role": "旧暦5月19日の織田勢による交戦",
+          "source_id": "S02",
+          "locator": "55頁・1560年5月19日",
+          "review_status": "本文確認",
+          "caveat": "年表の記載。原史料本文は未照合"
+        }
+      ],
+      "caveat": "採用範囲は旧暦5月19日の桶狭間での交戦。独立した支配面積へ換算しない",
+      "inference_note": "S02年表のE001が織田信長勢の交戦を示す。戦後の保持と軍事範囲は未確認",
+      "relation_note": "今川勢との交戦。尾張全域の優位は未判定"
+    },
+    {
+      "claim_id": "C039",
+      "actor": {
+        "id": "A02",
+        "label": "今川義元勢"
+      },
+      "place": {
+        "id": "R02",
+        "name": "桶狭間周辺"
+      },
+      "spatial_limitation": "桶狭間周辺の旧暦5月19日の交戦に限定",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "day_event",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "旧暦1560年5月19日の交戦時点"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E002",
+          "role": "旧暦5月19日の今川勢による交戦",
+          "source_id": "S02",
+          "locator": "55頁・1560年5月19日",
+          "review_status": "本文確認",
+          "caveat": "年表の記載。原史料本文は未照合"
+        }
+      ],
+      "caveat": "採用範囲は旧暦5月19日の桶狭間での交戦。独立した支配面積へ換算しない",
+      "inference_note": "S02年表のE002が今川義元勢の交戦を示す。討死後の軍事影響は延長しない",
+      "relation_note": "織田勢との交戦と義元討死。以後の今川勢の状態は未判定"
+    },
+    {
+      "claim_id": "C040",
+      "actor": {
+        "id": "A68",
+        "label": "三好長慶勢"
+      },
+      "place": {
+        "id": "R20",
+        "name": "飯盛城周辺"
+      },
+      "spatial_limitation": "飯盛城周辺の軍事排除と入城に限定",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "year_event",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "1560年内の時点不明。年中保持を推定しない"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E054",
+          "role": "1560年の軍事排除と飯盛城入城",
+          "source_id": "S79",
+          "locator": "歴史の節",
+          "review_status": "本文確認",
+          "caveat": "駆逐の範囲・月日・指揮下の個別部隊は未特定。飯盛城入城から河内全域の継続保持を推定しない"
+        }
+      ],
+      "caveat": "採用範囲は1560年の飯盛城に関わる駆逐・入城時点。河内全域と年中保持は未判定",
+      "inference_note": "大東市S79本文のE054が1560年の駆逐と入城を示す。個別の現地部隊は不明",
+      "relation_note": "畠山氏と安見氏を駆逐したが河内全域の継続保持は未判定"
+    },
+    {
+      "claim_id": "C041",
+      "actor": {
+        "id": "A13",
+        "label": "長尾景虎勢"
+      },
+      "place": {
+        "id": "R21",
+        "name": "富山城周辺"
+      },
+      "spatial_limitation": "富山城への攻撃が届いた範囲に限定",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "year_event",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "1560年内の攻城時点。年中継続を推定しない"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E029",
+          "role": "1560年の富山城攻撃",
+          "source_id": "S45",
+          "locator": "戦国時代編2",
+          "review_status": "本文確認",
+          "caveat": "富山城周辺の行動に限る。後年名の上杉謙信を当時名に読み替えた"
+        }
+      ],
+      "caveat": "採用範囲は1560年の富山城攻撃時点。越中全域と年中保持は未判定",
+      "inference_note": "富山市S45本文のE029が1560年の長尾景虎勢の攻城を示す",
+      "relation_note": "神保長職の退城は確認できるが越中全域の支配は未判定"
+    },
+    {
+      "claim_id": "C042",
+      "actor": {
+        "id": "A53",
+        "label": "正木氏勢"
+      },
+      "place": {
+        "id": "R22",
+        "name": "香取周辺"
+      },
+      "spatial_limitation": "香取領への侵攻が及んだ範囲に限定。香取全域の占拠ではない",
+      "geometry": null,
+      "time": {
+        "year": 1560,
+        "precision": "month_event",
+        "valid_from": null,
+        "valid_to": null,
+        "limitation": "永禄3年（1560）旧暦10月の侵攻時点。終了日・年末状態は未確認"
+      },
+      "influence": {
+        "status": "limited",
+        "mode": "direct",
+        "basis": "direct_action"
+      },
+      "force_group_id": null,
+      "evidence": [
+        {
+          "id": "E051",
+          "role": "1560年の正木氏による香取侵攻",
+          "source_id": "S66",
+          "locator": "千葉胤冨の項",
+          "review_status": "本文確認",
+          "caveat": "正木氏勢の個別指揮者が正木時茂かは本文に明記されない。里見氏との指揮関係も未判定"
+        },
+        {
+          "id": "E058",
+          "role": "1560年10月の香取侵攻と正木氏主力",
+          "source_id": "S112",
+          "locator": "中島城の節",
+          "review_status": "本文確認",
+          "caveat": "正木氏の個別の枝と指揮者は未特定。12月の正木時定と思われる人物の判物や小見川の時忠に10月の主体を固定しない。里見氏への間接帰属は作らない"
+        },
+        {
+          "id": "E060",
+          "role": "永禄3年の正木時忠による香取侵入",
+          "source_id": "S114",
+          "locator": "第三節「戦国期の千田庄」房総の情勢",
+          "review_status": "本文確認",
+          "caveat": "10月の侵攻主力が時忠だけかは未確定。八日市場台の戦闘は東国戦記に依拠し原文未照合。小見川城の取得日と占有域は未特定"
+        }
+      ],
+      "caveat": "採用範囲は旧暦10月の正木氏勢による香取領への侵攻時点のみ。時忠個人への10月指揮帰属と継続占拠は含めない",
+      "inference_note": "S112/E058は旧暦10月に正木氏が主力として香取領へ侵攻したと記す。S114/E060の時忠による年内侵入と同一日・同一軍とは未確定",
+      "relation_note": "里見氏による指揮・正木諸枝の統合は未確認"
+    }
+  ]
+}
