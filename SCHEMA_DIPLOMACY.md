@@ -76,7 +76,7 @@
 | `valid_to` | 日付/年（任意） | **史料確認終期**。史料本文において直接確認できる最も遅い時点。空欄は「終期未確認」。**重大な禁止則: 終期未確認の空欄を「無期限継続」や「通年有効」とみなしてはならず、また特定日の観測終期を「関係の終了・解消日」と自動断定してはならない** |
 | `time_precision` | 列挙型（必須） | `year_event`, `month_event`, `exact_date`, `approx_span`, `year_start_only`, `undated`。単一時点の出来事観測か、期間幅か、成立年のみ判明かを区別 |
 | `knowledge_state` | 列挙型（必須） | `known`（資料で確認）、`incomplete`（一部判明）、`unknown`（未確定） |
-| `confidence` | 列挙型（必須） | `high`（複数独立史料）、`medium`（信頼できる学術/公的資料）、`low`（伝承/後世史料） |
+| `confidence` | 列挙型（必須） | **関係記述自体の根拠強度（Record Evidence Confidence）**: `high`（複数独立史料）、`medium`（信頼できる学術/公的資料）、`low`（伝承/後世史料）。**重大な注意: これは「関係や出来事の記述そのものの確実性」であり、「1560年の指定時点にも有効・継続していた」という評価ではない。指定時点での有効性は time と continuity によってのみ判定される** |
 | `command_scope` | 列挙型（必須） | 軍事レイヤー連携用: `demonstrated`（軍事指揮が実証）、`unverified`（未確認）、`not_applicable`（敵対・対等） |
 | `continuity_review_status` | 列挙型（必須） | 反証探索の状況: `not_reviewed`, `insufficient`, `reviewed_no_contradiction`, `contradicted`, `conflicted` |
 | `continuity_review_scope` | 文字列（任意） | 反証探索の対象史料・期間・主体の簡潔な記録 |
@@ -86,8 +86,13 @@
 ### 3.2 関係出典結合表（`data/diplomacy/actor_relation_sources.csv`）
 - `relation_id`: 関係ID
 - `source_id`: 出典ID（`data/sources.csv` への参照）
-- `locator`: ページ、巻号、文書番号
-- `evidence_role`: 出典の役割（`primary_document`, `scholarly_evaluation`, `chronicle`, `counter_evidence`）
+- `locator`: ページ、巻号、文書番号、該当箇所の簡潔な説明
+- `evidence_role`: 出典の役割（列挙型）:
+  - `primary_document`: 古文書・同時代一次史料（書状・起請文・判物など）の翻刻・原本を直接確認した場合
+  - `scholarly_evaluation`: 現代学術研究・自治体史・調査報告書の通史的解説や研究上の評価を参照した場合
+  - `chronicle`: 後世編纂の軍記物・編纂年代記の記述を参照した場合
+  - `counter_evidence`: 関係の解消・否定・異説を示す反証資料の場合
+  - **重要規則**: 現代に編纂された自治体史・県史の通史編の解説は、引用された古文書翻刻そのものを直接確認・照合したのでない限り、推測で `primary_document` と認定せず厳格に `scholarly_evaluation` として扱う。
 
 ### 3.3 関係Evidence結合表（`data/diplomacy/actor_relation_evidence.csv`）
 - `relation_id`: 関係ID
@@ -246,6 +251,16 @@ DUMMY_R004,A_HYPO_ALPHA,A_HYPO_BETA,,hostile,mutual,localized,P_HYPO_REGION,1560
 | `AR005` | A65(北条氏康) ⇔ A52(里見) | hostile (mutual) | localized (R19: 久留里城周辺) | month_event (1560-05〜1560-05) | 北条氏康勢が上総久留里城を攻撃 | 1560年5月の合戦出来事。5月での敵対終了を意味しない。暦法と守備軍個別行動は未確認 |
 | `AR006` | A52(里見) ⇔ A13(長尾景虎) | alliance (mutual) | **unspecified** (空欄) | year_start_only (1560〜空欄) | 里見氏が長尾景虎へ出陣要請し房越同盟成立 | 終期未確認（推測で年末等に延長しない）。**同盟の適用地域範囲は史料未精査のため推測で `general` と断定せず `unspecified` として保持** |
 | `AR007` | A52(里見) → A53(正木時茂) [対象: A13] | intermediary (a_to_b) | localized (P18: 上総) | month_event (1560-05〜1560-05) | 里見義堯が正木時茂を通じ越後勢へ要請 | 1560年5月の取次出来事。正木軍への里見氏の命令権・動員権は未確認 |
+| `AR008` | A02(今川義元) → A03(松平元康) | subordinate (a_to_b) | localized (R03: 岡崎周辺) | month_event (空欄〜1560-05) | 岡崎城代派遣と元康の今川方従軍 | 1560年5月19日の桶狭間合戦（義元戦死）までの服属。元康の岡崎帰還後は自立へ向かうため当年後半へ継続させない（`contradicted`） |
+| `AR009` | A01(織田信長) ⇔ A02(今川義元) | hostile (mutual) | localized (R02: 桶狭間周辺) | month_event (空欄〜1560-05) | 尾張領国化と尾張侵攻による交戦・抗争 | 1560年5月の桶狭間合戦での交戦事実。義元戦死後の今川氏真との外交関係推移は未調査のため年後半の敵対状態を自動延長しない |
+
+#### 10.1 東海ブロック（尾張・三河）の選定と未確定事項の扱い
+- **選定理由**: 1560年（永禄3年）における日本中世最大の転換点（桶狭間合戦）を含み、軍事レイヤーでも検証済みの基礎資料（岡崎市史資料 S23, S24、静岡市史 S86 など）が確認されているため。
+- **年内変化の厳格な分離**:
+  - 松平元康の今川氏への従属（`AR008`）は、1560年5月の義元戦死および岡崎城帰還によって明確に破綻・解消（`contradicted`）しており、通年有効とは扱わない。
+- **織田・松平同盟の未成立（推測追加の排除）**:
+  - 松平元康が岡崎城に入った後、後年（1561〜1562年）にかけて織田氏との和睦・同盟（清洲同盟）へ向かうが、**1560年年内の段階では公式な同盟締結は史料上確認されていない**（S24でも「1561年に織田との和睦・完全独立へ向かった」と記述）。
+  - したがって、1560年時点の関係台帳に織田・松平同盟を推測でフライング登録してはならず、過渡期の未確定状態として保持する。
 
 ---
 
@@ -273,7 +288,7 @@ node build_diplomacy_1560.js --sample
 {
   "schema_version": "diplomacy-relations-projection-1560/v1",
   "generated_at": "YYYY-MM-DDTHH:mm:ss.sssZ",
-  "record_count": 7,
+  "record_count": 9,
   "relations": [
     {
       "relation_id": "AR001",
@@ -308,7 +323,7 @@ node build_diplomacy_1560.js --sample
           "source_id": "S107",
           "name": "『新修島根県史』通史編2中世",
           "locator": "第3章第2節",
-          "evidence_role": "primary_document"
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
@@ -339,6 +354,10 @@ node build_diplomacy_1560.js --sample
    - `confidence` 等の評価列が未設定の場合も `null` とする。
 5. **結合情報（`evidence`, `sources`）の契約**:
    - 当該関係に紐付くEvidenceや出典が存在しない場合、`null` ではなく空配列 `[]` とする（配列処理の安全性を確保）。
+6. **確信度（`confidence`）と指定断面有効性の峻別契約**:
+   - `confidence` は「関係記述そのものの根拠強度（Record Evidence Confidence）」を表す。
+   - 日付不明（`undated`）の関係に `confidence=high` が付いていても、それだけで1560年の指定断面において有効と表示・描画してはならない。
+   - 指定断面での有効性は、`time`（史料確認期間）および `continuity`（反証探索の完了度合い）によってのみ判定される。
 
 ---
 

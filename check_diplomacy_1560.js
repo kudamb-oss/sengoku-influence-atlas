@@ -88,6 +88,12 @@ const ALLOWED_CONTINUITY_STATUS = new Set([
   'contradicted',
   'conflicted'
 ]);
+const ALLOWED_EVIDENCE_ROLES = new Set([
+  'primary_document',
+  'scholarly_evaluation',
+  'chronicle',
+  'counter_evidence'
+]);
 
 function validateDiplomacy(options = {}) {
   const checkSample = options.checkSample || false;
@@ -233,12 +239,15 @@ function validateDiplomacy(options = {}) {
   // 4. actor_relation_sources.csv の結合整合性
   const sourcesByRel = new Map();
   for (const row of relationSources) {
-    const { relation_id, source_id } = row;
+    const { relation_id, source_id, evidence_role } = row;
     if (!relations.has(relation_id)) {
       errors.push(`actor_relation_sources: 存在しない relation_id '${relation_id}'`);
     }
     if (!sources.has(source_id)) {
       errors.push(`actor_relation_sources (${relation_id}): 存在しない source_id '${source_id}'`);
+    }
+    if (!evidence_role || !ALLOWED_EVIDENCE_ROLES.has(evidence_role)) {
+      errors.push(`actor_relation_sources (${relation_id}, ${source_id}): 不正または未指定の evidence_role '${evidence_role}'`);
     }
     if (!sourcesByRel.has(relation_id)) sourcesByRel.set(relation_id, []);
     sourcesByRel.get(relation_id).push(source_id);

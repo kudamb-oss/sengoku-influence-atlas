@@ -212,6 +212,8 @@ function main() {
     semantics: {
       temporal: 'valid_from/valid_toは史料確認時期。空欄はnull（始期不明/終期未確認）。特定日観測を関係終了日と自動断定しない。指定時点での継続が反証探索で裏付けられない場合は「不明」として扱い、継続中や関係なしと断定しない',
       spatial: 'spatial_scope=localizedはplaceによる地域限定。generalは勢力間包括合意（placeはnull）。unspecifiedは適用地域未詳（placeはnull、推測で包括合意と断定しない）',
+      confidence: 'confidenceは関係記述そのものの根拠強度（史料・文献上の確実性）を表し、1560年指定時点での有効性・継続性を表すものではない。指定時点での有効性はtimeとcontinuityによってのみ評価される',
+      evidence_role: 'evidence_roleは出典の役割（primary_document: 一次史料・古文書翻刻, scholarly_evaluation: 現代学術研究・自治体史通史解説, chronicle: 後世軍記・編纂物, counter_evidence: 反証史料）を表す。自治体史等の通史記述を一次史料と同一視しない',
       military_boundary: '外交関係（同盟・従属等）から軍事支配・指揮権・兵力投射を自動生成しない。command_scope=unverifiedは軍事実証なしを表す',
       null_contract: '値が不明または未調査の項目はnullとして保持し、架空の補完を行わない。1件の不明が他関係の不在を意味しない'
     },

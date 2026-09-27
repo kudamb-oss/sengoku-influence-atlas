@@ -4,6 +4,8 @@
   "semantics": {
     "temporal": "valid_from/valid_toは史料確認時期。空欄はnull（始期不明/終期未確認）。特定日観測を関係終了日と自動断定しない。指定時点での継続が反証探索で裏付けられない場合は「不明」として扱い、継続中や関係なしと断定しない",
     "spatial": "spatial_scope=localizedはplaceによる地域限定。generalは勢力間包括合意（placeはnull）。unspecifiedは適用地域未詳（placeはnull、推測で包括合意と断定しない）",
+    "confidence": "confidenceは関係記述そのものの根拠強度（史料・文献上の確実性）を表し、1560年指定時点での有効性・継続性を表すものではない。指定時点での有効性はtimeとcontinuityによってのみ評価される",
+    "evidence_role": "evidence_roleは出典の役割（primary_document: 一次史料・古文書翻刻, scholarly_evaluation: 現代学術研究・自治体史通史解説, chronicle: 後世軍記・編纂物, counter_evidence: 反証史料）を表す。自治体史等の通史記述を一次史料と同一視しない",
     "military_boundary": "外交関係（同盟・従属等）から軍事支配・指揮権・兵力投射を自動生成しない。command_scope=unverifiedは軍事実証なしを表す",
     "null_contract": "値が不明または未調査の項目はnullとして保持し、架空の補完を行わない。1件の不明が他関係の不在を意味しない"
   },
@@ -49,8 +51,8 @@
         {
           "source_id": "S107",
           "title": "国府尾城跡活用整備の検討にかかる報告書 第1分冊",
-          "locator": "本文5頁・歴史的環境",
-          "evidence_role": "被官関係の通史説明"
+          "locator": "本文5頁・国府尾城跡の歴史的環境（被官関係の通史説明）",
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
@@ -99,8 +101,8 @@
         {
           "source_id": "S108",
           "title": "北の中世を旅する",
-          "locator": "1514年の蠣崎光広の段落",
-          "evidence_role": "代官認定の記述"
+          "locator": "1514年の蠣崎光広の段落（代官認定の記述）",
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
@@ -149,8 +151,8 @@
         {
           "source_id": "S32",
           "title": "志布志城の歴史",
-          "locator": "肝付氏の攻撃の節",
-          "evidence_role": "反復攻撃と城保持の記述"
+          "locator": "肝付氏の攻撃の節（反復攻撃と城保持の記述）",
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
@@ -199,8 +201,8 @@
         {
           "source_id": "S109",
           "title": "志布志城1536 解説",
-          "locator": "志布志城1536の節",
-          "evidence_role": "1536年の対立陣営の記述"
+          "locator": "志布志城1536の節（1536年の対立陣営の記述）",
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
@@ -255,8 +257,8 @@
         {
           "source_id": "S68",
           "title": "さとみ物語・要約版 4章-2文",
-          "locator": "房越同盟の段落",
-          "evidence_role": "1560年5月の久留里城攻撃"
+          "locator": "房越同盟の段落（1560年5月の久留里城攻撃）",
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
@@ -302,8 +304,8 @@
         {
           "source_id": "S110",
           "title": "さとみ物語 完全版4章2文",
-          "locator": "房越同盟の段落",
-          "evidence_role": "出陣要請と同盟成立の記述"
+          "locator": "房越同盟の段落（出陣要請と同盟成立の記述）",
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
@@ -355,13 +357,141 @@
         {
           "source_id": "S110",
           "title": "さとみ物語 完全版4章2文",
-          "locator": "房越同盟の段落",
-          "evidence_role": "正木時茂の仲介の記述"
+          "locator": "房越同盟の段落（正木時茂の仲介の記述）",
+          "evidence_role": "scholarly_evaluation"
         }
       ],
       "notes": {
         "relation_note": "里見義堯が正木時茂を通して越後勢へ出陣を要請した",
         "caveat": "仲介の事実は正木軍への里見氏の命令権・動員権を証明しない"
+      }
+    },
+    {
+      "relation_id": "AR008",
+      "relation_type": "subordinate",
+      "direction": "a_to_b",
+      "actors": {
+        "actor_a": {
+          "id": "A02",
+          "label": "今川義元勢"
+        },
+        "actor_b": {
+          "id": "A03",
+          "label": "松平元康勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "R03",
+          "name": "岡崎周辺"
+        }
+      },
+      "time": {
+        "precision": "month_event",
+        "valid_from": null,
+        "valid_to": "1560-05"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "unverified",
+        "continuity": {
+          "status": "contradicted",
+          "scope": "S24本文（桶狭間後の今川勢撤退と元康自立の記述）"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E005",
+          "role": "今川氏による西三河支配と岡崎城代派遣の記述",
+          "statement": "岡崎市の改版PDFは桶狭間まで今川氏が西三河を支配し岡崎城代に今川氏の有力家臣が入ったと説明する"
+        },
+        {
+          "evidence_id": "E059",
+          "role": "今川氏城代の在城と桶狭間後の今川勢撤退の記述",
+          "statement": "岡崎市の改版PDFは今川氏の有力家臣が岡崎城代を務め義元戦死後に今川勢が岡崎城から撤退したと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S24",
+          "title": "岡崎市の歴史的風致形成の背景",
+          "locator": "PDF34頁・印刷46頁（桶狭間前の岡崎城代派遣と元康服属）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "今川義元に対する松平元康の服属関係。岡崎城に今川氏城代が置かれ元康は今川方として従軍",
+        "caveat": "1560年5月19日の桶狭間合戦（義元戦死）までの服属確認。元康の岡崎帰還後は自立に向かうため当年後半へ継続させない"
+      }
+    },
+    {
+      "relation_id": "AR009",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A01",
+          "label": "織田信長勢"
+        },
+        "actor_b": {
+          "id": "A02",
+          "label": "今川義元勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "R02",
+          "name": "桶狭間周辺"
+        }
+      },
+      "time": {
+        "precision": "month_event",
+        "valid_from": null,
+        "valid_to": "1560-05"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "not_reviewed",
+          "scope": null
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E001",
+          "role": "織田信長勢と今川義元勢の桶狭間での交戦記録",
+          "statement": "織田信長勢が桶狭間で今川義元勢と交戦した"
+        },
+        {
+          "evidence_id": "E002",
+          "role": "今川義元勢の交戦と義元討死の記録",
+          "statement": "今川義元勢が桶狭間で織田信長勢と交戦し義元が討死した"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S24",
+          "title": "岡崎市の歴史的風致形成の背景",
+          "locator": "PDF34頁・印刷46頁（桶狭間合戦での織田・今川交戦）",
+          "evidence_role": "scholarly_evaluation"
+        },
+        {
+          "source_id": "S86",
+          "title": "駿府の今川氏",
+          "locator": "10代義元・11代氏真の節（義元戦死と氏真継承）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "尾張領国化を進める織田信長と尾張侵攻を図る今川義元との相互敵対・交戦関係",
+        "caveat": "1560年5月19日の桶狭間合戦での交戦事実に基づく。義元戦死後の今川氏真との外交関係推移は未調査のため年後半の敵対状態を自動延長しない"
       }
     }
   ]
