@@ -975,6 +975,588 @@
         "relation_note": "大友義鎮勢が筑前侍嶋において筑紫惟門勢と武力衝突した事実を確認。単発交戦から持続的外交関係（包括的敵対・従属等）の確定は保留",
         "caveat": "1559年の侍嶋合戦での交戦事実に基づく。単発の武力衝突から持続的な外交的敵対関係への認定は保留とし1560年の交戦継続・講和の有無は未検証"
       }
+    },
+    {
+      "relation_id": "AR017",
+      "relation_type": "alliance",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A26",
+          "label": "武田晴信勢"
+        },
+        "actor_b": {
+          "id": "A02",
+          "label": "今川義元勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "general",
+        "place": null
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1554",
+        "valid_to": "1568"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S116（富士市解説）および三国婚姻成立。永禄11年の武田駿河侵攻までの同盟継続を確認"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S116",
+          "title": "善得寺公園（善得寺跡）",
+          "locator": "善得寺跡解説（天文23年甲相駿三国同盟伝承地と婚姻成立）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "甲相駿三国同盟の一環としての甲駿同盟。1554年の婚姻成立後1560年時点においても維持された",
+        "caveat": "善得寺での三者会談伝承は後世軍記物による演出とされるが婚姻を通じた包括同盟関係は史実。1560年の義元戦死後も氏真との間で直ちには破棄されず継続"
+      }
+    },
+    {
+      "relation_id": "AR018",
+      "relation_type": "alliance",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A26",
+          "label": "武田晴信勢"
+        },
+        "actor_b": {
+          "id": "A65",
+          "label": "北条氏康勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "general",
+        "place": null
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1554",
+        "valid_to": "1568"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S116（富士市解説）および氏政・黄梅院婚姻。永禄11年の武田駿河侵攻までの同盟継続を確認"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S116",
+          "title": "善得寺公園（善得寺跡）",
+          "locator": "善得寺跡解説（武田晴信と北条氏康の同盟）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "甲相駿三国同盟の一環としての甲相同盟。1554年成立後1560年時点においても維持された",
+        "caveat": "善得寺会談伝承を事実と断定しない。包括同盟の成立と1560年時点での継続を確認"
+      }
+    },
+    {
+      "relation_id": "AR019",
+      "relation_type": "alliance",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A65",
+          "label": "北条氏康勢"
+        },
+        "actor_b": {
+          "id": "A02",
+          "label": "今川義元勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "general",
+        "place": null
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1554",
+        "valid_to": "1568"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S116（富士市解説）および氏真・早川殿婚姻。永禄11年の武田駿河侵攻と北条の今川救援までの同盟継続を確認"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S116",
+          "title": "善得寺公園（善得寺跡）",
+          "locator": "善得寺跡解説（北条氏康と今川氏真の同盟）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "甲相駿三国同盟の一環としての相駿同盟。1554年成立後1560年時点においても維持された",
+        "caveat": "善得寺会談伝承を事実と断定しない。1560年の義元戦死後も北条と今川の同盟関係は継続"
+      }
+    },
+    {
+      "relation_id": "AR020",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A26",
+          "label": "武田晴信勢"
+        },
+        "actor_b": {
+          "id": "A13",
+          "label": "長尾景虎勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P24",
+          "name": "信濃"
+        }
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1553",
+        "valid_to": "1564"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S117（長野市解説・1553〜1564年川中島対陣期間）。1560年も信濃支配をめぐる敵対状態が継続"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S117",
+          "title": "川中島古戦場史跡公園（八幡原史跡公園）",
+          "locator": "川中島の戦い解説（1553〜1564年川中島対陣・武田と長尾の抗争）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "信濃国の領有をめぐる武田晴信勢と長尾景虎勢の軍事・外交的敵対関係。川中島を巡る反復対陣",
+        "caveat": "1560年中に大規模な会戦は発生していないが1553〜1564年の間継続的な軍事・外交対立下にあり海津城築城等の前線整備が進展"
+      }
+    },
+    {
+      "relation_id": "AR021",
+      "relation_type": "subordinate",
+      "direction": "a_to_b",
+      "actors": {
+        "actor_a": {
+          "id": "A56",
+          "label": "松永久秀勢"
+        },
+        "actor_b": {
+          "id": "A68",
+          "label": "三好長慶勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "general",
+        "place": null
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": null,
+        "valid_to": "1564"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "demonstrated",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S118および四條畷市・大東市解説。長慶存命中の被官関係（永禄7年長慶死去まで維持）"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S118",
+          "title": "多聞城跡解説",
+          "locator": "多聞城の歴史（松永久秀の大和侵攻と三好長慶被官関係）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "松永久秀の三好長慶に対する家臣・被官関係。大和侵攻および支配を委ねられた",
+        "caveat": "1564年の長慶死後およびその後の三好三人衆との対立・織田信長への接近という後年の関係変化を1560年に遡らせない"
+      }
+    },
+    {
+      "relation_id": "AR022",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A56",
+          "label": "松永久秀勢"
+        },
+        "actor_b": {
+          "id": "A57",
+          "label": "筒井藤勝（順慶）勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P02",
+          "name": "大和"
+        }
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1559",
+        "valid_to": "1576"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S118（奈良市解説・1559年大和侵攻と1560年多聞城築城、1576年破却までの対立期間）"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S118",
+          "title": "多聞城跡解説",
+          "locator": "多聞城の歴史（松永久秀と筒井順慶の大和支配抗争）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "大和国の支配権をめぐる松永久秀勢と筒井順慶勢の軍事・外交的敵対関係",
+        "caveat": "1560年多聞城築城開始時の交戦・対立事実に基づく。一時的な和睦や局地停戦の時期は未精査"
+      }
+    },
+    {
+      "relation_id": "AR023",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A39",
+          "label": "内藤宗勝（松永長頼）勢"
+        },
+        "actor_b": {
+          "id": "A40",
+          "label": "波多野氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P36",
+          "name": "丹波"
+        }
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1553",
+        "valid_to": "1565"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "南丹市・亀岡市等解説（天文22年八木城奪取から永禄8年内藤宗勝戦死までの丹波抗争期間）"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S02",
+          "title": "広島県史年表 中世 1180～1600",
+          "locator": "55頁・1560年の項（畿内・丹波抗争の記述）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "丹波国の覇権をめぐる三好・内藤宗勝勢と波多野氏勢の軍事・外交的敵対関係",
+        "caveat": "1560年前後は八上城奪取と波多野氏の抵抗が交錯。局地的な講和や情勢推移は未確定"
+      }
+    },
+    {
+      "relation_id": "AR024",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A41",
+          "label": "浦上氏勢"
+        },
+        "actor_b": {
+          "id": "A42",
+          "label": "松田氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P46",
+          "name": "備前"
+        }
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1550",
+        "valid_to": "1568"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "岡山市・備前市解説（天文期から永禄11年金川城落城・松田氏滅亡までの備前抗争期間）"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S61",
+          "title": "岡山の戦国争乱と城 第3巻 備中国",
+          "locator": "PDF3頁・永禄年間の項（備前における浦上氏と松田氏の対立）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "備前国の覇権をめぐる浦上宗景勢と松田元輝勢の軍事・外交的敵対関係",
+        "caveat": "1568年の松田氏滅亡に至る抗争期間に基づく。個別交戦日や一時的な停戦の有無は未検証"
+      }
+    },
+    {
+      "relation_id": "AR025",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A16",
+          "label": "長宗我部氏勢"
+        },
+        "actor_b": {
+          "id": "A17",
+          "label": "本山氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P57",
+          "name": "土佐"
+        }
+      },
+      "time": {
+        "precision": "month_event",
+        "valid_from": "1560-05",
+        "valid_to": "1560-05"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S12（高知県解説）および高知市解説（若宮八幡宮）。国親死去と元親継承後の抗争推移は未検証"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S12",
+          "title": "長宗我部元親と土佐の戦国時代・土佐の七雄",
+          "locator": "土佐の七雄の各項（長宗我部氏と本山氏の抗争・長浜合戦）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "永禄3年5月26〜28日の長浜城・戸ノ本合戦における長宗我部国親・元親勢と本山茂辰勢の武力衝突・相互敵対",
+        "caveat": "1560年5月の長浜合戦での交戦事実に基づく。合戦直後の国親病死と元親継承に伴う年後半の戦線推移は未確定"
+      }
+    },
+    {
+      "relation_id": "AR026",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A25",
+          "label": "日向伊東氏勢"
+        },
+        "actor_b": {
+          "id": "A30",
+          "label": "豊州家島津氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P64",
+          "name": "日向"
+        }
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1550",
+        "valid_to": "1562"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S120（日南市解説・1560年幕府調停決裂から1562年飫肥城奪取までの対立期間）"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S120",
+          "title": "飫肥城の歴史",
+          "locator": "伊東氏と島津氏の飫肥争奪（1560年将軍義輝調停決裂と敵対継続）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "日向国飫肥城の領有をめぐる日向伊東氏勢と豊州家島津氏勢の軍事・外交的敵対関係。1560年に将軍足利義輝による和睦調停が試みられたが決裂",
+        "caveat": "1560年の幕府調停決裂と敵対継続に基づく。局地的な小康状態や1562年の飫肥城落城以後の推移は未検証"
+      }
+    },
+    {
+      "relation_id": "AR027",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A38",
+          "label": "斎藤義龍勢"
+        },
+        "actor_b": {
+          "id": "A01",
+          "label": "織田信長勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P22",
+          "name": "美濃"
+        }
+      },
+      "time": {
+        "precision": "approx_span",
+        "valid_from": "1556",
+        "valid_to": "1561-05"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "high",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "reviewed_no_contradiction",
+          "scope": "S119（岐阜市解説・弘治2年長良川合戦後から永禄4年5月義龍病没までの抗争期間）"
+        }
+      },
+      "evidence": [],
+      "sources": [
+        {
+          "source_id": "S119",
+          "title": "岐阜城の歴代城主",
+          "locator": "斎藤義龍の節（1556〜1561年の織田信長との敵対・美濃防衛）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "render": {
+        "is_confirmed": true,
+        "draw_status": "confirmed"
+      },
+      "notes": {
+        "relation_note": "美濃国の斎藤義龍勢と尾張国の織田信長勢の軍事・外交的敵対関係",
+        "caveat": "1556年〜1561年の継続的敵対関係に基づく。1560年中の個別小戦闘および局地交渉の有無は未検証"
+      }
     }
   ]
 }

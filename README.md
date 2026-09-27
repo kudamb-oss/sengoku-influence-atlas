@@ -8,7 +8,7 @@
 
 この初版は旧国68件に加え、旧国体系外の琉球・蝦夷地を調査対象として明示した。代表5ケースの設計検証時点では一部記録済み15国、未調査53国だった。現在は `coverage_1560.csv` で調査段階と知識状態を別々に記録する。未調査や判定不能は「軍事主体が存在しなかった」という意味ではない。全国の勢力判定は未着手の地域を多く残す。
 
-外交・従属関係レイヤー（1560年）は、全国70地域を管理対象台帳（`data/diplomacy/coverage_1560.csv`）に登録し、現在16件の関係を記録（13地域）。外交史料を確認した地域は16地域であり、54地域は未調査として管理する。「全国調査完了」「完全網羅」ではなく、調査済み地域と未着手地域を明瞭に区分して進める。
+外交・従属関係レイヤー（1560年）は、全国70地域を管理対象台帳（`data/diplomacy/coverage_1560.csv`）に登録し、全70地域について外交史料の探索・精査を実施した（`evidence_reviewed=70`、未着手 `not_researched=0`）。確認できた関係27件（29地域）を記録し、34地域は調査中・関係未確定（`incomplete`）、7地域は関係未確認（`no_relation_found`）として管理する。「全国完全網羅」「外交関係を全地域で確認済み」と誇張せず、地域ごとの調査事実・到達範囲・保留理由を明瞭に区分して進める。
 
 
 ## 設計原則
@@ -27,7 +27,7 @@
 
 レイヤーごとのデータは混ざらないよう分離する：
 - **軍事レイヤー（1560年）**: `data/claims_1560.csv`（軍事Assessment）、`data/evidence_1560.csv`（軍事具体的Evidence）、`data/region_structure_1560.csv`（地域構造）、`data/coverage_1560.csv`（調査進捗）、および各結合表（`claim_evidence.csv`、`claim_sources.csv`、`structure_evidence.csv`）と承認済み投影 `data/military_influence_1560.json`。
-- **外交・従属関係レイヤー**: `data/diplomacy/` 配下に配置。主体間関係台帳 `actor_relations_1560.csv`（16件）、全国カバレッジ管理台帳 `coverage_1560.csv`（対象70地域を管理対象として一覧化。外交史料確認16地域、関係記録13地域、未確定3地域、未調査54地域。調査進捗と調査空白を可視化）、関係出典・証拠結合表（`actor_relation_sources.csv`、`actor_relation_evidence.csv`）、および最小投影 `actor_relations_1560.json` を管理する。`node check_diplomacy_1560.js` でスキーマおよび参照整合性・カバレッジ検証を確認できるほか、`node build_diplomacy_1560.js --check` で投影JSONの一致検証、`--sample` で欠損値耐性契約のテストを実行できる。設計と運用規則は [外交・従属関係データ設計](SCHEMA_DIPLOMACY.md) に記す。
+- **外交・従属関係レイヤー**: `data/diplomacy/` 配下に配置。主体間関係台帳 `actor_relations_1560.csv`（27件）、全国カバレッジ管理台帳 `coverage_1560.csv`（対象70地域を管理対象として一覧化。全70地域で史料精査済み `evidence_reviewed=70`。関係記録 `documented=29地域`、未確定 `incomplete=34地域`、未確認 `no_relation_found=7地域`、未調査 `0地域`。調査進捗と調査到達範囲を可視化）、関係出典・証拠結合表（`actor_relation_sources.csv`、`actor_relation_evidence.csv`）、および最小投影 `actor_relations_1560.json` を管理する。`node check_diplomacy_1560.js` でスキーマおよび参照整合性・カバレッジ検証を確認できるほか、`node build_diplomacy_1560.js --check` で投影JSONの一致検証、`--sample` で欠損値耐性契約のテストを実行できる。設計と運用規則は [外交・従属関係データ設計](SCHEMA_DIPLOMACY.md) に記す。
 
 CSVを選んだ理由は、今回の少量の調査台帳をGit差分と表計算で確認しやすく、外部アプリやデータベースサーバーを要さないためである。階層IDと結合表を分離しているため、郡・拠点の追加時に列や既存行を作り直さずに済む。関係や件数が増えて参照整合性の管理が難しくなった段階では、同じ表をSQLiteへ移す。軍事スキーマと状態の意味は [データ設計（軍事）](SCHEMA.md) に記す。
 
