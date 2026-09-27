@@ -95,6 +95,20 @@ const ALLOWED_EVIDENCE_ROLES = new Set([
   'counter_evidence'
 ]);
 
+const ALLOWED_RESEARCH_STAGES = new Set([
+  'not_researched',
+  'sources_identified',
+  'evidence_reviewed'
+]);
+
+const ALLOWED_COVERAGE_KNOWLEDGE_STATES = new Set([
+  'documented',
+  'incomplete',
+  'unknown',
+  'no_relation_found'
+]);
+
+
 function validateDiplomacy(options = {}) {
   const checkSample = options.checkSample || false;
   console.log('=== 外交・従属関係レイヤー 参照整合性チェック開始 ===\n');
@@ -297,8 +311,85 @@ function validateDiplomacy(options = {}) {
   console.log(`  - 終期未確認 (valid_to 空欄): ${blankValidToCount}件 / ${relations.size}件 (無期限継続と扱わない未確認終期)`);
   console.log(`  - 反証探索スコープ空欄: ${blankScopeReviewCount}件 / ${relations.size}件 (not_reviewed 等)`);
 
-  // 6. オプション: サンプル架空データのスキーマ検証
+  // 6. coverage_1560.csv のスキーマ・参照整合性検証
+  console.log('\n--- 外交カバレッジ管理表検証 (coverage_1560.csv) ---');
+  const coveragePath = path.join(diplomacyDir, 'coverage_1560.csv');
+  const coverageRows = parseCsv(coveragePath, 'coverage_1560.csv');
+
+  // 対象となる全国70地域（province 68国 + external_region 2地域）を抽出
+  const expectedProvinces = new Set();
+  for (const p of places.values()) {
+    if (p.place_type === 'province' || p.place_type === 'external_region') {
+      expectedProvinces.add(p.place_id);
+    }
+  }
+
+  const coveragePlaceIds = new Set();
+  const coverageKnowledgeCounts = { documented: 0, incomplete: 0, unknown: 0, no_relation_found: 0 };
+  const coverageStageCounts = { evidence_reviewed: 0, sources_identified: 0, not_researched: 0 };
+
+  for (const row of coverageRows) {
+    const { year, place_id, research_stage, knowledge_state, knowledge_reason, note } = row;
+
+    if (year !== '1560') {
+      errors.push(`coverage_1560.csv: year は '1560' である必要があります (指定値: ${year})`);
+    }
+    if (!expectedProvinces.has(place_id)) {
+      errors.push(`coverage_1560.csv: 不正または対象外の place_id '${place_id}' (旧国または旧国体系外地域のみ許可)`);
+    }
+    if (coveragePlaceIds.has(place_id)) {
+      errors.push(`coverage_1560.csv: place_id '${place_id}' が重複しています`);
+    }
+    coveragePlaceIds.add(place_id);
+
+    if (!ALLOWED_RESEARCH_STAGES.has(research_stage)) {
+      errors.push(`coverage_1560.csv (${place_id}): 不正な research_stage '${research_stage}'`);
+    } else {
+      coverageStageCounts[research_stage] = (coverageStageCounts[research_stage] || 0) + 1;
+    }
+
+    if (!ALLOWED_COVERAGE_KNOWLEDGE_STATES.has(knowledge_state)) {
+      errors.push(`coverage_1560.csv (${place_id}): 不正な knowledge_state '${knowledge_state}'`);
+    } else {
+      coverageKnowledgeCounts[knowledge_state] = (coverageKnowledgeCounts[knowledge_state] || 0) + 1;
+    }
+
+    if (!knowledge_reason || knowledge_reason.trim() === '') {
+      errors.push(`coverage_1560.csv (${place_id}): knowledge_reason が空欄です`);
+    }
+    if (!note || note.trim() === '') {
+      errors.push(`coverage_1560.csv (${place_id}): note が空欄です`);
+    }
+  }
+
+  // 70地域の網羅性チェック
+  for (const expectedId of expectedProvinces) {
+    if (!coveragePlaceIds.has(expectedId)) {
+      errors.push(`coverage_1560.csv: 必須地域 '${expectedId}' (${places.get(expectedId).name}) がカバレッジ表に含まれていません`);
+    }
+  }
+
+  if (errors.length > 0) {
+    console.error(`\n❌ 検証失敗: ${errors.length}件のエラーが検出されました:`);
+    for (const err of errors) console.error(`  - ${err}`);
+    process.exit(1);
+  }
+
+  console.log('✅ 本番外交カバレッジ表検証合格');
+  console.log(`  - 登録地域数: ${coverageRows.length}地域 / 対象70地域 (旧国68 + 外部2) を完全網羅`);
+  console.log(`  - 調査進捗 (research_stage):`);
+  console.log(`    * evidence_reviewed (史料本文・証拠精査済み): ${coverageStageCounts.evidence_reviewed}地域`);
+  console.log(`    * sources_identified (候補資料把握): ${coverageStageCounts.sources_identified}地域`);
+  console.log(`    * not_researched (未調査): ${coverageStageCounts.not_researched}地域`);
+  console.log(`  - 知識状態 (knowledge_state):`);
+  console.log(`    * documented (外交関係登録済み): ${coverageKnowledgeCounts.documented}地域`);
+  console.log(`    * incomplete (調査中・関係未確定): ${coverageKnowledgeCounts.incomplete}地域`);
+  console.log(`    * unknown (未調査・判定不能): ${coverageKnowledgeCounts.unknown}地域`);
+  console.log(`    * no_relation_found (調査したが関係未確認): ${coverageKnowledgeCounts.no_relation_found}地域`);
+
+  // 7. オプション: サンプル架空データのスキーマ検証
   if (checkSample) {
+
     console.log('\n--- 架空サンプルデータ検証 (sample_relations_dummy.csv) ---');
     const samplePath = path.join(diplomacyDir, 'sample_relations_dummy.csv');
     const sampleRows = parseCsv(samplePath, 'sample_relations_dummy.csv');

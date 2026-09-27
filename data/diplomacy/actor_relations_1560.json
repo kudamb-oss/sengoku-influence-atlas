@@ -510,6 +510,185 @@
         "relation_note": "尾張領国化を進める織田信長と尾張侵攻を図る今川義元との相互敵対・交戦関係",
         "caveat": "1560年5月19日の桶狭間合戦での交戦事実に基づく。義元戦死後の今川氏真との外交関係推移は未調査のため年後半の敵対状態を自動延長しない"
       }
+    },
+    {
+      "relation_id": "AR010",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A07",
+          "label": "六角義賢勢"
+        },
+        "actor_b": {
+          "id": "A08",
+          "label": "浅井長政勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "R23",
+          "name": "野良田表周辺"
+        }
+      },
+      "time": {
+        "precision": "month_event",
+        "valid_from": "1560-08",
+        "valid_to": "1560-08"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S111（長浜市年表・永禄3年8月中旬野良田表交戦）およびS25。原史料『江濃記』本文は未照合"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E057",
+          "role": "浅井賢政勢と六角義賢勢の野良田表での交戦記録",
+          "statement": "長浜市公開の浅井氏関係年表は永禄3年8月中旬に浅井賢政と六角義賢が野良田表で戦い六角勢が敗退したと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S111",
+          "title": "浅井氏関係年表を含む小谷城跡資料",
+          "locator": "33-34頁・表6（永禄3年8月中旬野良田表交戦）",
+          "evidence_role": "scholarly_evaluation"
+        },
+        {
+          "source_id": "S25",
+          "title": "小谷城跡",
+          "locator": "小谷城跡・野良田合戦の節（野良田合戦での浅井・六角交戦）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "六角義賢勢と浅井長政（賢政）勢が近江野良田表で武力衝突し相互交戦・敵対状態となった",
+        "caveat": "永禄3年8月中旬の野良田合戦での交戦事実に基づく。合戦前の従属関係からの離反経緯や戦後の江北・江南境界推移は未確定"
+      }
+    },
+    {
+      "relation_id": "AR011",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A15",
+          "label": "毛利元就・隆元勢"
+        },
+        "actor_b": {
+          "id": "A14",
+          "label": "尼子晴久・義久勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P42",
+          "name": "石見"
+        }
+      },
+      "time": {
+        "precision": "exact_date",
+        "valid_from": "1560-04-04",
+        "valid_to": "1560-04-04"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S02（新修島根県史年表・1560年4月4日幕府合戦停止命令）。年後半の交戦継続と停戦の実効性は未検証"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E003",
+          "role": "石見における毛利氏と尼子氏の合戦停止命令記録",
+          "statement": "毛利氏に石見で尼子氏との合戦停止が命じられた"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S02",
+          "title": "広島県史年表 中世 1180～1600",
+          "locator": "55頁・1560年4月4日（石見合戦停止命令）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "毛利元就・隆元勢と尼子晴久・義久勢が石見国の覇権をめぐり相互交戦・敵対状態にあった（室町幕府による合戦停止命令の対象）",
+        "caveat": "1560年4月4日付の合戦停止命令記録に基づく。将軍調停の受諾・実効性や年後半の交戦境界は未確定"
+      }
+    },
+    {
+      "relation_id": "AR012",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A13",
+          "label": "長尾景虎勢"
+        },
+        "actor_b": {
+          "id": "A36",
+          "label": "神保長職勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "R21",
+          "name": "富山城周辺"
+        }
+      },
+      "time": {
+        "precision": "year_event",
+        "valid_from": "1560",
+        "valid_to": "1560"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S45（富山市解説・1560年富山城攻撃と増山城退去）。神保氏のその後の抵抗・降伏過程は未検証"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E029",
+          "role": "長尾景虎勢による越中富山城の攻城記録",
+          "statement": "富山市の解説は1560年に長尾景虎勢が富山城を攻めたと記す"
+        },
+        {
+          "evidence_id": "E030",
+          "role": "富山城攻撃を受けた神保長職勢の増山城退去記録",
+          "statement": "富山市の解説は1560年の富山城攻撃を受け神保長職が増山城へ逃れたと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S45",
+          "title": "富山城の歴史 戦国時代編2",
+          "locator": "戦国時代編2（1560年富山城攻撃と神保長職の増山城退去）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "長尾景虎勢が越中富山城を攻撃し神保長職勢が増山城へ逃れたことによる相互交戦・敵対状態",
+        "caveat": "1560年の富山城攻防事実に基づく。越中全域の勢力関係や神保氏の従属・抵抗の継続期間は未確定"
+      }
     }
   ]
 }
