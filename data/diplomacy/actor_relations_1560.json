@@ -569,8 +569,8 @@
         }
       ],
       "notes": {
-        "relation_note": "六角義賢勢と浅井長政（賢政）勢が近江野良田表で武力衝突し相互交戦・敵対状態となった",
-        "caveat": "永禄3年8月中旬の野良田合戦での交戦事実に基づく。合戦前の従属関係からの離反経緯や戦後の江北・江南境界推移は未確定"
+        "relation_note": "六角義賢勢への従属下（賢政期）からの離反・自立に伴い近江野良田表で武力衝突し相互交戦・敵対状態となった",
+        "caveat": "永禄3年8月中旬の野良田合戦での交戦事実および浅井氏自立の叙述に基づく。合戦前の六角氏への従属および離反に至る政治過程の詳細（起請文や手切状の年月日）や戦後の江北・江南境界推移は未確定"
       }
     },
     {
@@ -625,8 +625,8 @@
         }
       ],
       "notes": {
-        "relation_note": "毛利元就・隆元勢と尼子晴久・義久勢が石見国の覇権をめぐり相互交戦・敵対状態にあった（室町幕府による合戦停止命令の対象）",
-        "caveat": "1560年4月4日付の合戦停止命令記録に基づく。将軍調停の受諾・実効性や年後半の交戦境界は未確定"
+        "relation_note": "毛利元就・隆元勢と尼子晴久・義久勢が石見国の覇権をめぐり相互交戦・敵対状態にあった（室町幕府による合戦停止命令の観測対象）",
+        "caveat": "1560年4月4日は将軍足利義輝による合戦停止命令が下された観測日であり敵対関係自体の開始日や講和による終了日ではない。敵対自体はこれ以前より継続していたが公式な手切日および和睦・終期の正確な日時は未確定"
       }
     },
     {
@@ -657,7 +657,7 @@
         "valid_to": "1560"
       },
       "assessment": {
-        "knowledge_state": "known",
+        "knowledge_state": "incomplete",
         "confidence": "medium",
         "command_scope": "not_applicable",
         "continuity": {
@@ -686,8 +686,229 @@
         }
       ],
       "notes": {
-        "relation_note": "長尾景虎勢が越中富山城を攻撃し神保長職勢が増山城へ逃れたことによる相互交戦・敵対状態",
-        "caveat": "1560年の富山城攻防事実に基づく。越中全域の勢力関係や神保氏の従属・抵抗の継続期間は未確定"
+        "relation_note": "越中富山城攻撃および神保長職の増山城退去の軍事的衝突を確認。軍事行動の背景にある越後勢と神保氏の外交的敵対・抗争関係（椎名氏支援や能登畠山氏との連絡等）の公式な合意・手切文書は未取得",
+        "caveat": "S45が直接示すのは1560年の富山城攻撃と退去（軍事行動）であり外交上の宣戦・手切や包括的敵対合意の文書ではない。軍事衝突事実から直ちに持続的な外交的敵対関係を断定せず越中における同盟・敵対構造（椎名氏・能登畠山氏等）は調査中・未確定として保持"
+      }
+    },
+    {
+      "relation_id": "AR013",
+      "relation_type": "hostile",
+      "direction": "a_to_b",
+      "actors": {
+        "actor_a": {
+          "id": "A69",
+          "label": "太田資正勢"
+        },
+        "actor_b": {
+          "id": "A65",
+          "label": "北条氏康勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P16",
+          "name": "武蔵"
+        }
+      },
+      "time": {
+        "precision": "year_event",
+        "valid_from": "1560",
+        "valid_to": "1560"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S89（さいたま市立博物館解説・永禄3年太田資正の後北条氏離反）。松山城奪還時期の幅（1560～1561）と武蔵全域への影響は未検証"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E055",
+          "role": "太田資正の後北条氏離反の記録",
+          "statement": "さいたま市立博物館の解説は永禄3年に太田資正が長尾景虎らの後北条氏討伐に呼応し後北条氏から離反したと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S89",
+          "title": "展示web解説 中世その1",
+          "locator": "太田資正と永禄3年の段落（後北条氏からの離反記述）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "岩付城主の太田資正勢が長尾景虎らの越山・後北条氏討伐に呼応し後北条氏から離反した",
+        "caveat": "1560年（永禄3年）の離反事実に基づく。松山城奪還の正確な時期や武蔵国他領主への波及範囲は未確定"
+      }
+    },
+    {
+      "relation_id": "AR014",
+      "relation_type": "alliance",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A69",
+          "label": "太田資正勢"
+        },
+        "actor_b": {
+          "id": "A13",
+          "label": "長尾景虎勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "unspecified",
+        "place": null
+      },
+      "time": {
+        "precision": "year_start_only",
+        "valid_from": "1560",
+        "valid_to": null
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "unverified",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S89（さいたま市立博物館解説・太田資正の景虎呼応）。同盟約定文書の原本照合および直接指揮権は未検証"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E055",
+          "role": "太田資正の長尾景虎呼応の記録",
+          "statement": "さいたま市立博物館の解説は永禄3年に太田資正が長尾景虎らの後北条氏討伐に呼応し後北条氏から離反したと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S89",
+          "title": "展示web解説 中世その1",
+          "locator": "太田資正と永禄3年の段落（長尾景虎への呼応記述）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "太田資正勢が長尾景虎勢の関東侵攻・後北条氏討伐に呼応して連携・同盟関係を結んだ",
+        "caveat": "1560年の呼応事実に基づく。同盟条項の詳細・終期および太田軍に対する景虎の直接指揮権の有無は未確認"
+      }
+    },
+    {
+      "relation_id": "AR015",
+      "relation_type": "peace_treaty",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A58",
+          "label": "三村家親勢"
+        },
+        "actor_b": {
+          "id": "A59",
+          "label": "庄為資勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P47",
+          "name": "備中"
+        }
+      },
+      "time": {
+        "precision": "year_event",
+        "valid_from": "1559",
+        "valid_to": "1559"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S61（岡山県教育委員会資料・永禄2年三村氏と庄為資の和睦）。1560年の和睦継続状況および1561年松山城入城への推移は未検証"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E046",
+          "role": "三村家親と庄為資の和睦の記録",
+          "statement": "岡山県の冊子は三村家親が庄為資を攻撃した末に和睦し猿掛城へ三村氏が入ったと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S61",
+          "title": "岡山の戦国争乱と城 第3巻 備中国",
+          "locator": "PDF3頁・永禄2年の項（三村家親と庄為資の和睦記述）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "三村家親勢が庄為資勢を攻撃した末に和睦が成立し三村氏が猿掛城へ入った",
+        "caveat": "1559年（永禄2年）の和睦成立事実に基づく。1560年における和睦関係の継続性およびその後の毛利氏支援による庄高資攻撃（1561年）への推移は未確定"
+      }
+    },
+    {
+      "relation_id": "AR016",
+      "relation_type": "hostile",
+      "direction": "mutual",
+      "actors": {
+        "actor_a": {
+          "id": "A67",
+          "label": "大友義鎮勢"
+        },
+        "actor_b": {
+          "id": "A47",
+          "label": "筑紫氏勢"
+        },
+        "target_actor": null
+      },
+      "spatial": {
+        "scope": "localized",
+        "place": {
+          "id": "P58",
+          "name": "筑前"
+        }
+      },
+      "time": {
+        "precision": "year_event",
+        "valid_from": "1559",
+        "valid_to": "1559"
+      },
+      "assessment": {
+        "knowledge_state": "known",
+        "confidence": "medium",
+        "command_scope": "not_applicable",
+        "continuity": {
+          "status": "insufficient",
+          "scope": "S76（久留米市解説・1559年筑前侍嶋合戦での交戦）。1560年における敵対継続状況および講和の有無は未検証"
+        }
+      },
+      "evidence": [
+        {
+          "evidence_id": "E053",
+          "role": "大友軍と筑紫惟門勢の侍嶋合戦の記録",
+          "statement": "久留米市の解説は1559年に大友軍が筑前侍嶋で筑紫惟門勢と戦い小河鑑昌が戦死し大友義鎮がその子六郎に感状を与えたと記す"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "S76",
+          "title": "小川区有中世文書",
+          "locator": "大友義鎮感状の段落（1559年侍嶋での筑紫惟門勢との交戦）",
+          "evidence_role": "scholarly_evaluation"
+        }
+      ],
+      "notes": {
+        "relation_note": "大友義鎮勢が筑前侍嶋において筑紫惟門勢と武力衝突し相互交戦・敵対状態にあった",
+        "caveat": "1559年の侍嶋合戦での交戦事実に基づく。1560年における敵対継続状況・局地停戦または講和の有無は未検証"
       }
     }
   ]
