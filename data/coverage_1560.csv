@@ -7,8 +7,8 @@ year,place_id,research_stage,knowledge_state,knowledge_reason,note
 1560,P06,evidence_reviewed,unknown,三重県年表の伊賀惣国一揆掟書行は1560年と永禄8年が矛盾し年次採用不可,S82。伊賀衆・惣国一揆の成立年代、上野・名張・大和境を要原史料照合
 1560,P07,evidence_reviewed,unknown,北畠氏の南伊勢通史は1560年軍事行動と伊勢全域の軍事統合を示さない,多気・大河内と北伊勢を区別。北畠具教・長野氏・神戸氏は候補
 1560,P08,evidence_reviewed,unknown,九鬼氏・海上勢力の通史には1560年の個別指揮や航路行動がない,鳥羽・泊・相差・答志島を区別。九鬼氏と他の海賊衆は統合しない
-1560,P09,evidence_reviewed,incomplete,候補・資料を一部確認したが地域全体は未判定,候補主体を一部記録。全域・全主体の判定は未了
-1560,P10,evidence_reviewed,incomplete,候補・資料を一部確認したが地域全体は未判定,候補主体を一部記録。全域・全主体の判定は未了
+1560,P09,evidence_reviewed,incomplete,桶狭間E001・E002の旧暦5月19日の交戦はR02に限りAssessment化。尾張全域の年中優位と水野諸家の指揮は未判定,候補主体を一部記録。全域・全主体の判定は未了
+1560,P10,evidence_reviewed,incomplete,法蔵寺制札E006はT02の旧暦7月9日に限りAssessment化。今川氏の西三河支配E005は抄録のみで年内移行境界は不明,候補主体を一部記録。全域・全主体の判定は未了
 1560,P11,evidence_reviewed,unknown,二俣城の本格造営を桶狭間以後とする本文は1560年内の築城・城主を特定しない,掛川・二俣・引馬・井伊谷を区別。今川氏真・飯尾氏・井伊氏は候補
 1560,P12,evidence_reviewed,incomplete,義元の桶狭間戦死と氏真の後継は確認したが駿河国内の1560年具体的軍事行動は未取得,駿府・興国寺城・富士川を区別。今川義元勢A02と氏真の指揮移行は未判定
 1560,P13,evidence_reviewed,incomplete,候補・資料を一部確認したが地域全体は未判定,代表事例の候補・拠点のみ調査。全域と全主体は未判定
@@ -17,9 +17,9 @@ year,place_id,research_stage,knowledge_state,knowledge_reason,note
 1560,P16,evidence_reviewed,incomplete,太田資正の1560年離反E055を確認したが松山城奪還時期と武蔵各地の勢力は未判定,岩付・松山・河越・忍を区別。A69とA34・A13の関係を要照合
 1560,P17,evidence_reviewed,incomplete,館山市本文に1560年の房越同盟と久留里城攻撃を確認したが主戦場は上総で安房内の軍事行動は未特定,S68・E052。里見氏勢A52と小田喜正木氏勢A53の指揮関係・安房内の拠点は未判定
 1560,P18,evidence_reviewed,incomplete,Batch3のE052で1560年の久留里城攻撃を確認。上総全域の支配・終期は未判定,久留里・小田喜・佐貫・勝浦を区別。A65・A52・A53の関係を要照合
-1560,P19,evidence_reviewed,incomplete,香取への1560～1566年侵攻は本文確認したが開始日・正木勢の指揮・公方と千葉氏の関係は未確認,E041。香取・佐倉・関宿・小弓を区別
+1560,P19,evidence_reviewed,incomplete,正木氏の香取侵攻E051をR22に限りAssessment化。里見氏との指揮・正木諸家の同一性と占拠範囲は未判定,E041。香取・佐倉・関宿・小弓を区別
 1560,P20,evidence_reviewed,unknown,小田城と小田・佐竹氏の通史は1560年の個別軍事行動を特定しない,小田・太田・水戸・鹿行を区別。小田氏・佐竹氏・江戸氏は候補
-1560,P21,evidence_reviewed,incomplete,候補・資料を一部確認したが地域全体は未判定,候補主体を一部記録。全域・全主体の判定は未了
+1560,P21,evidence_reviewed,incomplete,野良田合戦後の浅井氏についてE007は検索抄録のみ。E008は1568年であり1560年の江北・江南の指揮境界は未判定,候補主体を一部記録。全域・全主体の判定は未了
 1560,P22,evidence_reviewed,incomplete,1561年の稲葉山城主交代は確認。1560年の軍事行動と東西美濃の国衆関係は未確認,E031。稲葉山・西美濃・東美濃の候補
 1560,P23,sources_identified,incomplete,候補・資料を一部確認したが地域全体は未判定,候補主体を一部記録。全域・全主体の判定は未了
 1560,P24,evidence_reviewed,incomplete,海津城の1560年築城説を確認したが北信濃以外・城主・国衆関係は未確認,E042。川中島・海津・南信濃を区別
